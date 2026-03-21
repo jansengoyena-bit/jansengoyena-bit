@@ -1,0 +1,14 @@
+title: Espacio Manila
+email: hello@espaciomanila.com
+description: Virtual Office & Business Solutions
+baseurl: ""
+url: "https://jansengoyena-bit.github.io"
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
