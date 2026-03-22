@@ -13,4 +13,64 @@
 {% include footer.html %}
 {% include scripts.html %}
 </body>
+<script>
+    // Get the current URL path (e.g., "/contact")
+    const currentPath = window.location.pathname;
+
+    // Find all links in the navigation
+    const navLinks = document.querySelectorAll('nav a');
+
+    navLinks.forEach(link => {
+        // If the link's href matches the current path, make it gold
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('text-[#C5A059]');
+            link.classList.remove('hover:text-[#C5A059]'); // Remove hover effect on active link
+        } else {
+            // Ensure other links stay navy
+            link.classList.add('text-[#011F3F]');
+        }
+    });
+</script>
+<style>
+    :root {
+        --deep-navy: #001529; /* Darker, high-contrast navy */
+        --rich-gold: #99793D; /* Deepened gold for better visibility */
+        --pure-white: #FFFFFF;
+        --soft-cream: #FDFBF7;
+    }
+
+    body {
+        color: var(--deep-navy) !important;
+        background-color: var(--soft-cream);
+        -webkit-font-smoothing: antialiased;
+    }
+
+
+    /* 3. Small Labels: Maximum Contrast Black */
+  /* Force 100% Solid Black with zero transparency */
+    .label-meta,
+    label,
+    .text-[10px],
+    .text-[9px],
+    .uppercase.tracking-widest {
+        color: #000000 !important;
+        opacity: 1 !important; /* This kills the 'gray' look caused by transparency */
+        -webkit-text-fill-color: #000000 !important; /* Extra layer of protection for Safari */
+        font-weight: 900 !important;
+        background: none !important;
+    }
+
+    /* If the label is inside a gray-looking container, force its background to be clear */
+    .space-y-1, .input-box {
+        background-color: transparent !important;
+    }
+
+    /* Keep the form fields distinct with the Midnight Navy border we established */
+    input, select, textarea {
+        border: 2px solid #001529 !important;
+        color: #001529 !important;
+    }
+
+
+</style>
 </html>

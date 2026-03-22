@@ -1,127 +1,224 @@
 ---
 layout: page
-title: Our Services
+title: Professional Suite & Quotation
 ---
 
-<header class="py-24 bg-[#011F3F] text-[#FDFBF7] relative overflow-hidden text-center">
-    <div class="max-w-7xl mx-auto px-8 relative z-10 reveal">
-        <span class="text-[#C5A059] uppercase tracking-[0.6em] text-[10px] mb-4 block font-bold font-sans">Professional Solutions</span>
-        <h1 class="text-5xl md:text-6xl mb-6 leading-tight serif tracking-tight">Request a <span class="italic text-[#C5A059] font-medium">Quotation</span></h1>
-        <p class="text-gray-400 max-w-2xl text-lg font-light leading-relaxed mx-auto">
-            Select the professional services required for your enterprise. Our collective of CPAs and Attorneys will architect a custom proposal for your review.
-        </p>
-    </div>
-</header>
+<style>
+    #espacio-nexus {
+        background-color: #FDFBF7;
+        color: #011F3F;
+        font-family: 'Inter', -apple-system, sans-serif;
+    }
+    .hero-section {
+        position: relative;
+        padding: 100px 20px;
+        background: #011F3F;
+        text-align: center;
+        overflow: hidden;
+    }
+    .hero-image {
+        position: absolute;
+        inset: 0;
+        background-image: url('espaciomanila.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.25;
+        z-index: 1;
+    }
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, #011F3F, transparent, #011F3F);
+        z-index: 2;
+    }
+    .hero-text { position: relative; z-index: 3; }
+    
+    .content-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+    .selection-side { flex: 1; min-width: 320px; }
+    .calculator-side { flex: 0 0 400px; }
 
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-            <div class="p-10 bg-[#FDFBF7] border border-[#011F3F]/5 rounded-xl hover:border-[#C5A059]/30 transition-all duration-500 group reveal">
-                <div class="w-12 h-12 mb-6 flex items-center justify-center bg-[#011F3F] text-[#C5A059] rounded-lg group-hover:bg-[#C5A059] group-hover:text-[#011F3F] transition-colors">
-                    <i class="fa-solid fa-building-circle-check text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-[#011F3F] mb-4 serif">Virtual Office</h3>
-                <p class="text-sm text-[#011F3F]/60 leading-relaxed font-light mb-6">Premium business address in Makati or BGC with mail handling and call forwarding services.</p>
-                <ul class="text-[11px] uppercase tracking-widest text-[#C5A059] font-bold space-y-2">
-                    <li><i class="fa-solid fa-check mr-2"></i> Business Registration</li>
-                    <li><i class="fa-solid fa-check mr-2"></i> Mayor's Permit Support</li>
-                </ul>
-            </div>
+    .input-box { margin-bottom: 40px; }
+    .label-meta {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #C5A059;
+        font-weight: 900;
+        margin-bottom: 12px;
+        display: block;
+    }
+    .dropdown-ui, .form-input {
+        width: 100%;
+        padding: 16px;
+        border: 1px solid rgba(1, 31, 63, 0.1);
+        background: white;
+        color: #011F3F;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
 
-            <div class="p-10 bg-[#FDFBF7] border border-[#011F3F]/5 rounded-xl hover:border-[#C5A059]/30 transition-all duration-500 group reveal">
-                <div class="w-12 h-12 mb-6 flex items-center justify-center bg-[#011F3F] text-[#C5A059] rounded-lg group-hover:bg-[#C5A059] group-hover:text-[#011F3F] transition-colors">
-                    <i class="fa-solid fa-calculator text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-[#011F3F] mb-4 serif">Tax & Accounting</h3>
-                <p class="text-sm text-[#011F3F]/60 leading-relaxed font-light mb-6">Comprehensive tax compliance, bookkeeping, and financial auditing by our resident CPAs.</p>
-                <ul class="text-[11px] uppercase tracking-widest text-[#C5A059] font-bold space-y-2">
-                    <li><i class="fa-solid fa-check mr-2"></i> BIR Filing</li>
-                    <li><i class="fa-solid fa-check mr-2"></i> Payroll Management</li>
-                </ul>
-            </div>
+    .sticky-card {
+        background: #011F3F;
+        color: white;
+        padding: 45px;
+        border-radius: 4px;
+        position: sticky;
+        top: 20px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        border-top: 5px solid #C5A059;
+    }
+    .price-large {
+        font-size: 3.5rem;
+        color: #C5A059;
+        font-family: serif;
+        margin: 10px 0;
+    }
 
-            <div class="p-10 bg-[#FDFBF7] border border-[#011F3F]/5 rounded-xl hover:border-[#C5A059]/30 transition-all duration-500 group reveal">
-                <div class="w-12 h-12 mb-6 flex items-center justify-center bg-[#011F3F] text-[#C5A059] rounded-lg group-hover:bg-[#C5A059] group-hover:text-[#011F3F] transition-colors">
-                    <i class="fa-solid fa-scale-balanced text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-[#011F3F] mb-4 serif">Legal Consulting</h3>
-                <p class="text-sm text-[#011F3F]/60 leading-relaxed font-light mb-6">Expert legal retainers and corporate secretarial services provided by our partner Attorneys.</p>
-                <ul class="text-[11px] uppercase tracking-widest text-[#C5A059] font-bold space-y-2">
-                    <li><i class="fa-solid fa-check mr-2"></i> SEC Incorporation</li>
-                    <li><i class="fa-solid fa-check mr-2"></i> Contract Review</li>
-                </ul>
-            </div>
+    .form-section {
+        margin-top: 60px;
+        padding-top: 60px;
+        border-top: 1px solid rgba(1, 31, 63, 0.1);
+    }
+
+    @media (max-width: 1024px) {
+        .calculator-side { flex: 1; width: 100%; }
+        .sticky-card { position: relative; top: 0; }
+    }
+</style>
+
+<div id="espacio-nexus">
+
+    <div class="hero-section">
+        <div class="hero-image"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <span style="color: #C5A059; text-transform: uppercase; letter-spacing: 5px; font-size: 10px; font-weight: bold;">Full Service Portfolio</span>
+            <h1 style="color: white; font-family: serif; font-size: 3.5rem; margin: 15px 0; text-transform: uppercase;">Tailor Your <span style="font-style: italic; color: #C5A059;">Suite</span></h1>
         </div>
+    </div>
 
-        <div class="max-w-4xl mx-auto bg-[#FDFBF7] rounded-2xl shadow-2xl shadow-navy/10 overflow-hidden reveal">
-            <div class="p-12 md:p-16">
-                <div class="mb-12 border-b border-[#011F3F]/10 pb-8">
-                    <h2 class="text-2xl font-bold text-[#011F3F] serif mb-2">Service Specification Form</h2>
-                    <p class="text-xs uppercase tracking-[0.2em] text-[#011F3F]/40 font-bold">Please define your business requirements</p>
-                </div>
+    <div class="content-grid">
+        
+        <div class="selection-side">
+            <div class="input-box">
+                <span class="label-meta">01. Virtual Office & Address</span>
+                <select id="vo_choice" onchange="calculateQuote()" class="dropdown-ui">
+                    <option value="0">Not Required</option>
+                    <option value="1500">Makati (Kamagong) — ₱1,500/mo</option>
+                    <option value="2500">BGC (High Street) — ₱2,500/mo</option>
+                    <option value="5000">Corporate HQ — ₱5,000/mo</option>
+                </select>
+            </div>
 
-                <form action="https://formspree.io/f/your-id" method="POST" class="space-y-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="space-y-2 group">
-                            <label class="text-[10px] uppercase tracking-widest font-black text-[#011F3F]/40 ml-1 group-focus-within:text-[#C5A059] transition">Full Name</label>
-                            <input type="text" name="full_name" required placeholder="Jansen Goyena" 
-                                class="w-full bg-white border-b border-[#011F3F]/10 px-0 py-3 text-[#011F3F] focus:outline-none focus:border-[#C5A059] transition-all text-sm font-medium">
-                        </div>
-                        <div class="space-y-2 group">
-                            <label class="text-[10px] uppercase tracking-widest font-black text-[#011F3F]/40 ml-1 group-focus-within:text-[#C5A059] transition">Company Name</label>
-                            <input type="text" name="company" placeholder="Espacio Manila Inc." 
-                                class="w-full bg-white border-b border-[#011F3F]/10 px-0 py-3 text-[#011F3F] focus:outline-none focus:border-[#C5A059] transition-all text-sm font-medium">
-                        </div>
-                    </div>
+            <div class="input-box">
+                <span class="label-meta">02. Bookkeeping & Tax Filing (Monthly)</span>
+                <select id="bookkeeping_choice" onchange="calculateQuote()" class="dropdown-ui">
+                    <option value="0">None</option>
+                    <option value="3500">Micro (Up to 20 Trans.) — ₱3,500/mo</option>
+                    <option value="7500">Small (Up to 50 Trans.) — ₱7,500/mo</option>
+                    <option value="15000">Medium (Up to 100 Trans.) — ₱15,000/mo</option>
+                </select>
+            </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="space-y-2 group">
-                            <label class="text-[10px] uppercase tracking-widest font-black text-[#011F3F]/40 ml-1 group-focus-within:text-[#C5A059] transition">Email Address</label>
-                            <input type="email" name="email" required placeholder="contact@company.com" 
-                                class="w-full bg-white border-b border-[#011F3F]/10 px-0 py-3 text-[#011F3F] focus:outline-none focus:border-[#C5A059] transition-all text-sm font-medium">
-                        </div>
-                        <div class="space-y-2 group">
-                            <label class="text-[10px] uppercase tracking-widest font-black text-[#011F3F]/40 ml-1 group-focus-within:text-[#C5A059] transition">Phone Number</label>
-                            <input type="tel" name="phone" required placeholder="+63 9XX XXX XXXX" 
-                                class="w-full bg-white border-b border-[#011F3F]/10 px-0 py-3 text-[#011F3F] focus:outline-none focus:border-[#C5A059] transition-all text-sm font-medium">
-                        </div>
-                    </div>
+            <div class="input-box">
+                <span class="label-meta">03. End-to-End Accounting (Monthly)</span>
+                <select id="ete_choice" onchange="calculateQuote()" class="dropdown-ui">
+                    <option value="0">None</option>
+                    <option value="25000">Startup Suite — ₱25,000/mo</option>
+                    <option value="50000">SME Suite — ₱50,000/mo</option>
+                </select>
+            </div>
 
-                    <div class="space-y-4">
-                        <label class="text-[10px] uppercase tracking-widest font-black text-[#011F3F]/40 ml-1">Services Required (Select all that apply)</label>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <label class="flex items-center space-x-3 text-sm text-[#011F3F]/70 cursor-pointer hover:text-[#C5A059] transition">
-                                <input type="checkbox" name="service" value="Virtual Office" class="accent-[#C5A059]">
-                                <span>Virtual Office & Business Address</span>
-                            </label>
-                            <label class="flex items-center space-x-3 text-sm text-[#011F3F]/70 cursor-pointer hover:text-[#C5A059] transition">
-                                <input type="checkbox" name="service" value="Accounting" class="accent-[#C5A059]">
-                                <span>Tax & Accounting Retainer</span>
-                            </label>
-                            <label class="flex items-center space-x-3 text-sm text-[#011F3F]/70 cursor-pointer hover:text-[#C5A059] transition">
-                                <input type="checkbox" name="service" value="Legal" class="accent-[#C5A059]">
-                                <span>Legal Counsel & Retainer</span>
-                            </label>
-                            <label class="flex items-center space-x-3 text-sm text-[#011F3F]/70 cursor-pointer hover:text-[#C5A059] transition">
-                                <input type="checkbox" name="service" value="Registration" class="accent-[#C5A059]">
-                                <span>SEC / BIR / LGU Registration</span>
-                            </label>
-                        </div>
-                    </div>
+            <div class="input-box">
+                <span class="label-meta">04. Audited Financial Statements (Annual)</span>
+                <select id="afs_choice" onchange="calculateQuote()" class="dropdown-ui">
+                    <option value="0">None</option>
+                    <option value="20000">Basic Audit — ₱20,000</option>
+                    <option value="45000">Standard Audit — ₱45,000</option>
+                    <option value="85000">Complex Corporate — ₱85,000</option>
+                </select>
+            </div>
 
-                    <div class="space-y-2 group">
-                        <label class="text-[10px] uppercase tracking-widest font-black text-[#011F3F]/40 ml-1 group-focus-within:text-[#C5A059] transition">Additional Requirements / Notes</label>
-                        <textarea name="notes" rows="4" placeholder="Briefly describe your business goals..." 
-                            class="w-full bg-white border-b border-[#011F3F]/10 px-0 py-3 text-[#011F3F] focus:outline-none focus:border-[#C5A059] transition-all text-sm font-medium"></textarea>
-                    </div>
-
-                    <button type="submit" 
-                        class="w-full bg-[#011F3F] text-[#FDFBF7] font-black uppercase tracking-[0.4em] py-5 mt-6 hover:bg-[#C5A059] transition-all duration-500 text-sm group flex items-center justify-center gap-3 shadow-xl hover:shadow-gold/20">
-                        Request Official Quotation
-                        <i class="fa-solid fa-paper-plane text-[10px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            <div class="form-section">
+                <span class="label-meta">05. Secure Your Quotation</span>
+                <h2 style="font-family: serif; font-size: 2rem; margin-bottom: 25px;">Get a Price Quote</h2>
+                
+                <form action="https://formspree.io/f/your-id" method="POST">
+                    <input type="text" name="name" placeholder="Full Name" class="form-input" required>
+                    <input type="email" name="email" placeholder="Email Address" class="form-input" required>
+                    <input type="text" name="company" placeholder="Company Name (Optional)" class="form-input">
+                    <textarea name="message" placeholder="Specific requirements or questions..." class="form-input" style="height: 120px;"></textarea>
+                    
+                    <input type="hidden" name="estimated_monthly" id="hidden_monthly" value="₱0">
+                    <input type="hidden" name="estimated_setup" id="hidden_setup" value="₱0">
+                    <input type="hidden" name="estimated_total" id="hidden_total" value="₱0">
+                    
+                    <button type="submit" style="width: 100%; background: #011F3F; color: white; border: none; padding: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; cursor: pointer;">
+                        Submit Request
                     </button>
                 </form>
             </div>
         </div>
+
+        <div class="calculator-side">
+            <div class="sticky-card">
+                <p style="color: #C5A059; font-size: 10px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 25px;">Live Estimate</p>
+                
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; opacity: 0.5; font-size: 12px; text-transform: uppercase;">
+                    <span>Monthly Retainer</span>
+                    <span id="out_monthly">₱0</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin-bottom: 30px; opacity: 0.5; font-size: 12px; text-transform: uppercase;">
+                    <span>Setup/Annual Fees</span>
+                    <span id="out_setup">₱0</span>
+                </div>
+
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px;">
+                    <p style="font-size: 10px; color: #C5A059; font-weight: bold; text-transform: uppercase;">Estimated Total</p>
+                    <div id="out_total" class="price-large">₱0</div>
+                </div>
+                
+                <p style="font-size: 11px; opacity: 0.6; line-height: 1.4; margin-top: 20px;">
+                    Use the form on the left to lock in this estimate and receive a formal proposal via email.
+                </p>
+            </div>
+        </div>
     </div>
-</section>
+</div>
+
+<script>
+    function calculateQuote() {
+        const vo = parseInt(document.getElementById('vo_choice').value) || 0;
+        const bookkeeping = parseInt(document.getElementById('bookkeeping_choice').value) || 0;
+        const ete = parseInt(document.getElementById('ete_choice').value) || 0;
+        const monthly = vo + bookkeeping + ete;
+
+        const afs = parseInt(document.getElementById('afs_choice').value) || 0;
+        
+        // Setup logic
+        const setup = afs; 
+
+        // Update UI
+        const monthlyStr = '₱' + monthly.toLocaleString();
+        const setupStr = '₱' + setup.toLocaleString();
+        const totalStr = '₱' + (monthly + setup).toLocaleString();
+
+        document.getElementById('out_monthly').innerText = monthlyStr;
+        document.getElementById('out_setup').innerText = setupStr;
+        document.getElementById('out_total').innerText = totalStr;
+
+        // Update Hidden Form Fields
+        document.getElementById('hidden_monthly').value = monthlyStr;
+        document.getElementById('hidden_setup').value = setupStr;
+        document.getElementById('hidden_total').value = totalStr;
+    }
+    window.onload = calculateQuote;
+</script>
