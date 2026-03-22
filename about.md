@@ -63,6 +63,21 @@ title: About Espacio Manila
         border-left: 4px solid #99793D;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
+
+footer {
+    position: relative !important;
+    z-index: 99 !important; /* Higher than any 'reveal' animation */
+    display: block !important;
+    overflow: visible !important;
+}
+
+footer * {
+    position: relative;
+    z-index: 100;
+    /* Force visibility in case a 'reveal' class was accidentally applied to the footer */
+    opacity: 1 !important; 
+    transform: none !important;
+}
 </style>
 
 <div id="about-espacio">
