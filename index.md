@@ -95,6 +95,52 @@ title: Home | Espacio Manila
 
 </section>
 
+<section class="py-24 bg-white overflow-hidden border-t border-[#001529]/5">
+    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+        <div class="reveal-left opacity-0 -translate-x-20 transition-all duration-1000 ease-out">
+            <div class="relative">
+                <div class="aspect-[4/5] bg-[#001529] rounded-sm overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800" 
+                         alt="CPA Professional at work" 
+                         class="w-full h-full object-cover filter contrast-125 brightness-90">
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 border-b-4 border-l-4 border-[#99793D] -z-10"></div>
+            </div>
+        </div>
+
+        <div class="reveal-right opacity-0 translate-x-20 transition-all duration-1000 ease-out delay-300">
+            <span class="text-black font-[900] uppercase tracking-[0.4em] text-[11px] mb-6 block">
+                The Espacio Standard
+            </span>
+            <h2 class="text-4xl md:text-5xl font-serif text-[#001529] leading-tight mb-8">
+                Your <span class="italic text-[#99793D]">Reliable Partner</span> <br> 
+                in Philippine Compliance.
+            </h2>
+            <p class="text-[18px] text-[#2D3748] leading-relaxed mb-8">
+                Navigating the Philippine regulatory landscape requires more than just "help"—it requires **precision architecture**. We handle the complexities of SEC, DTI, and BIR so you can focus on your legacy.
+            </p>
+            
+            <ul class="space-y-4 mb-10">
+                <li class="flex items-center gap-4 text-black font-bold text-sm">
+                    <i class="fa-solid fa-check text-[#99793D]"></i> Full Corporate Tax Outsourcing
+                </li>
+                <li class="flex items-center gap-4 text-black font-bold text-sm">
+                    <i class="fa-solid fa-check text-[#99793D]"></i> End-to-End Business Registration
+                </li>
+                <li class="flex items-center gap-4 text-black font-bold text-sm">
+                    <i class="fa-solid fa-check text-[#99793D]"></i> 22 Strategic Hubs Nationwide
+                </li>
+            </ul>
+
+            <a href="/about" class="inline-block border-2 border-[#001529] text-[#001529] px-10 py-4 text-[11px] font-black uppercase tracking-widest hover:bg-[#001529] hover:text-white transition-all">
+                Learn About Our Expertise
+            </a>
+        </div>
+
+    </div>
+</section>
+
 <section class="bg-[#FDFBF7] py-24 px-8 border-b border-[#001529]/10">
    
 </section>
@@ -146,6 +192,24 @@ title: Home | Espacio Manila
             submitBtn.disabled = false;
         });
     });
+
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    // This ensures your original reveal animations AND the new slide-ins work
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
+        revealObserver.observe(el);
+    });
 </script>
 
 <style>
@@ -165,5 +229,27 @@ title: Home | Espacio Manila
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
+    }
+
+/* Sliding Focus Animations */
+    .reveal-left, .reveal-right {
+        opacity: 0;
+        transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform, opacity;
+    }
+
+    .reveal-left.active {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+
+    .reveal-right.active {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+
+    /* Ensuring high-contrast black for text labels */
+    .text-black {
+        color: #000000 !important;
     }
 </style>
