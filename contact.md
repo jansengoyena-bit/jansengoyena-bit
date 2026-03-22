@@ -18,23 +18,23 @@ title: Contact Us | Espacio Manila
                     <form id="nexus-contact-form" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="space-y-2 group">
-                                <label class="text-[10px] uppercase tracking-widest font-black text-[#011F3F]/40 ml-1">First Name</label>
+                                <label class="text-[13px] uppercase tracking-widest font-black text-[#011F3F]/90 ml-1">First Name</label>
                                 <input type="text" name="entry.539737381" required placeholder="Jansen" class="w-full bg-[#FDFBF7] border-b-2 border-[#011F3F]/10 px-0 py-3 text-[#011F3F] focus:outline-none focus:border-[#C5A059] transition-all text-sm font-medium" />
                             </div>
                             
                             <div class="space-y-2 group">
-                                <label class="text-[10px] uppercase tracking-widest font-black text-[#011F3F]/40 ml-1">Last Name</label>
+                                <label class="text-[13px] uppercase tracking-widest font-black text-[#011F3F]/90 ml-1">Last Name</label>
                                 <input type="text" name="entry.772958265" required placeholder="Goyena" class="w-full bg-[#FDFBF7] border-b-2 border-[#011F3F]/10 px-0 py-3 text-[#011F3F] focus:outline-none focus:border-[#C5A059] transition-all text-sm font-medium" />
                             </div>
                         </div>
 
                         <div class="space-y-2 group">
-                            <label class="text-[10px] uppercase tracking-widest font-black text-[#011F3F]/40 ml-1">Business Email</label>
+                            <label class="text-[13px] uppercase tracking-widest font-black text-[#011F3F]/90 ml-1">Business Email</label>
                             <input type="email" name="entry.1928928074" required placeholder="email@company.com" class="w-full bg-[#FDFBF7] border-b-2 border-[#011F3F]/10 px-0 py-3 text-[#011F3F] focus:outline-none focus:border-[#C5A059] transition-all text-sm font-medium" />
                         </div>
 
                         <div class="space-y-2 group">
-                            <label class="text-[10px] uppercase tracking-widest font-black text-[#011F3F]/40 ml-1">Contact Number</label>
+                            <label class="text-[13px] uppercase tracking-widest font-black text-[#011F3F]/90 ml-1">Contact Number</label>
                             <input type="tel" name="entry.512370401" placeholder="+63 XXX XXX XXXX" class="w-full bg-[#FDFBF7] border-b-2 border-[#011F3F]/10 px-0 py-3 text-[#011F3F] focus:outline-none focus:border-[#C5A059] transition-all text-sm font-medium" />
                         </div>
 
