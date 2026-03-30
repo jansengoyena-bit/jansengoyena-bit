@@ -49,7 +49,7 @@ title: About Espacio Manila
         margin-top: 8px;
     }
 
-    /* Animation Classes */
+    /* ORIGINAL ANIMATIONS RESTORED */
     .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 1.2s ease-out; }
     .reveal-right { opacity: 0; transform: translateX(50px); transition: all 1.2s ease-out; }
     .reveal-up { opacity: 0; transform: translateY(30px); transition: all 1.2s ease-out; }
@@ -64,20 +64,14 @@ title: About Espacio Manila
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-footer {
-    position: relative !important;
-    z-index: 99 !important; /* Higher than any 'reveal' animation */
-    display: block !important;
-    overflow: visible !important;
-}
+    /* SENIOR READABILITY TWEAK (FONT ONLY) */
+    .content-section p {
+        font-size: 19px;
+        line-height: 1.8;
+    }
 
-footer * {
-    position: relative;
-    z-index: 100;
-    /* Force visibility in case a 'reveal' class was accidentally applied to the footer */
-    opacity: 1 !important; 
-    transform: none !important;
-}
+
+
 </style>
 
 <div id="about-espacio">
@@ -113,13 +107,13 @@ footer * {
     <section class="content-section grid grid-cols-1 md:grid-cols-2 gap-12">
         <div class="reveal-left">
             <h2 style="font-family: serif; font-size: 2rem; color: #001529; border-bottom: 3px solid #99793D; display: inline-block; margin-bottom: 20px;">Our Mission</h2>
-            <p style="font-size: 18px; color: #2D3748; line-height: 1.8;">
+            <p style="color: #2D3748;">
                 To provide the highest level of professional accounting, legal, and business registration services. We aim to empower entrepreneurs by removing the friction of compliance, allowing them to focus on innovation and sustainable growth.
             </p>
         </div>
         <div class="reveal-right">
             <h2 style="font-family: serif; font-size: 2rem; color: #001529; border-bottom: 3px solid #99793D; display: inline-block; margin-bottom: 20px;">Our Vision</h2>
-            <p style="font-size: 18px; color: #2D3748; line-height: 1.8;">
+            <p style="color: #2D3748;">
                 To be the premier business infrastructure provider in the Philippines, recognized for our uncompromising integrity, technical precision, and our ability to turn complex regulatory landscapes into seamless operational pathways.
             </p>
         </div>
@@ -130,15 +124,15 @@ footer * {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="value-card reveal-up" style="transition-delay: 100ms;">
                 <h3 style="font-weight: 900; color: #000; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Integrity</h3>
-                <p style="font-size: 15px; color: #4A5568;">We uphold the highest ethical standards, ensuring every filing and statement reflects the absolute truth of your business standing.</p>
+                <p style="font-size: 16px; color: #4A5568;">We uphold the highest ethical standards, ensuring every filing and statement reflects the absolute truth of your business standing.</p>
             </div>
             <div class="value-card reveal-up" style="transition-delay: 200ms;">
                 <h3 style="font-weight: 900; color: #000; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Precision</h3>
-                <p style="font-size: 15px; color: #4A5568;">In the world of taxation and law, details are everything. We execute every task with architectural accuracy.</p>
+                <p style="font-size: 16px; color: #4A5568;">In the world of taxation and law, details are everything. We execute every task with architectural accuracy.</p>
             </div>
             <div class="value-card reveal-up" style="transition-delay: 300ms;">
                 <h3 style="font-weight: 900; color: #000; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Commitment</h3>
-                <p style="font-size: 15px; color: #4A5568;">Your success is our success. We remain committed to your long-term legacy as your strategic business ally.</p>
+                <p style="font-size: 16px; color: #4A5568;">Your success is our success. We remain committed to your long-term legacy as your strategic business ally.</p>
             </div>
         </div>
     </section>
