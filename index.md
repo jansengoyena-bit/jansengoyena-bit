@@ -109,7 +109,8 @@ title: Home | Espacio Manila
         </div>
     </section>
 
-    <section class="py-24 bg-navy text-[#FDFBF7]">
+    <section class="py-24 bg-gradient-to-b from-[#011F3F] to-[#001529] text-[#FDFBF7]">
+  
         <div class="max-w-7xl mx-auto px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
                 <div class="reveal-left">
