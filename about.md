@@ -57,21 +57,98 @@ title: About Espacio Manila
 
     .content-section { max-width: 1000px; margin: 100px auto; padding: 0 24px; }
     
-    .value-card {
-        background: white;
-        padding: 40px;
-        border-left: 4px solid #99793D;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-
-    /* SENIOR READABILITY TWEAK (FONT ONLY) */
+    /* HIGH-READABILITY MAIN COPY SYSTEM */
     .content-section p {
         font-size: 19px;
         line-height: 1.8;
     }
 
+    /* PURE TEXT SLIDER ARCHITECTURE (Replicated from Homepage) */
+    .slider-viewport {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 1200px !important; 
+        margin: 0 auto;
+    }
+    .slider-track {
+        display: flex;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        width: 100%;
+    }
+    .value-card-wrapper {
+        flex: 0 0 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px; 
+    }
+    .value-card {
+        background: transparent !important;
+        padding: 40px 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 100%;
+    }
 
+    /* FORCED SPECIFICITY TYPOGRAPHY SCHEME FOR VALUES */
+    .value-title {
+        font-size: 32px !important;
+        font-weight: 900 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.15em !important;
+        margin-bottom: 1.5rem !important;
+        line-height: 1.2 !important;
+    }
+    .value-description {
+        font-size: 20px !important;
+        line-height: 1.8 !important;
+        color: #2D3748 !important;
+        font-weight: 300 !important;
+    }
 
+    /* Responsive Desktop Scaling Rules */
+    @media (min-width: 768px) {
+        .value-title {
+            font-size: 30px !important; 
+        }
+        .value-description {
+            font-size: 30px !important; 
+        }
+    }
+    
+    /* Slider Controls Layout styling */
+    .slider-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(1, 21, 41, 0.15);
+        transition: all 0.3s ease;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+    .slider-dot.dot-active {
+        background-color: #99793D;
+        width: 36px;
+        border-radius: 5px;
+    }
+    .slider-nav-btn {
+        background: transparent; 
+        color: #001529;
+        border: 1px solid rgba(1, 21, 41, 0.1);
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .slider-nav-btn:hover {
+        background: #001529;
+        color: white;
+        border-color: #001529;
+    }
 </style>
 
 <div id="about-espacio">
@@ -121,19 +198,48 @@ title: About Espacio Manila
 
     <section class="content-section" style="margin-top: 0;">
         <h2 class="reveal-up text-center" style="font-family: serif; font-size: 2.5rem; margin-bottom: 50px;">Core Values</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="value-card reveal-up" style="transition-delay: 100ms;">
-                <h3 style="font-weight: 900; color: #000; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Integrity</h3>
-                <p style="font-size: 16px; color: #4A5568;">We uphold the highest ethical standards, ensuring every filing and statement reflects the absolute truth of your business standing.</p>
+        
+        <div class="reveal-up relative max-w-7xl mx-auto">
+            
+            <div class="slider-viewport" id="valuesSlider">
+                <div class="slider-track" id="sliderTrack">
+                    
+                    <div class="value-card-wrapper">
+                        <div class="value-card text-center">
+                            <h3 class="value-title" style="color: #99793D !important;">Integrity</h3>
+                            <p class="value-description max-w-4xl mx-auto">We uphold the highest ethical standards, ensuring every filing and statement reflects the absolute truth of your business standing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-card-wrapper">
+                        <div class="value-card text-center">
+                            <h3 class="value-title" style="color: #99793D !important;">Precision</h3>
+                            <p class="value-description max-w-4xl mx-auto">In the world of taxation and law, details are everything. We execute every task with architectural accuracy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-card-wrapper">
+                        <div class="value-card text-center">
+                            <h3 class="value-title" style="color: #99793D !important;">Commitment</h3>
+                            <p class="value-description max-w-4xl mx-auto">Your success is our success. We remain committed to your long-term legacy as your strategic business ally.</p>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
-            <div class="value-card reveal-up" style="transition-delay: 200ms;">
-                <h3 style="font-weight: 900; color: #000; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Precision</h3>
-                <p style="font-size: 16px; color: #4A5568;">In the world of taxation and law, details are everything. We execute every task with architectural accuracy.</p>
+
+            <div class="flex items-center justify-between max-w-md mx-auto mt-12">
+                <button class="slider-nav-btn" onclick="moveSlide(-1)" aria-label="Previous slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                
+                <div class="flex gap-3.5" id="sliderDotsContainer"></div>
+                
+                <button class="slider-nav-btn" onclick="moveSlide(1)" aria-label="Next slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
             </div>
-            <div class="value-card reveal-up" style="transition-delay: 300ms;">
-                <h3 style="font-weight: 900; color: #000; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Commitment</h3>
-                <p style="font-size: 16px; color: #4A5568;">Your success is our success. We remain committed to your long-term legacy as your strategic business ally.</p>
-            </div>
+
         </div>
     </section>
 
@@ -146,6 +252,7 @@ title: About Espacio Manila
 </div>
 
 <script>
+    // Intersection Observer architecture
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -157,4 +264,93 @@ title: About Espacio Manila
     document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up').forEach((el) => {
         observer.observe(el);
     });
+
+    // Carousel Value Text Slider Engine Parameters
+    let currentSlide = 0;
+    const track = document.getElementById('sliderTrack');
+    const slides = document.querySelectorAll('.value-card-wrapper');
+    const totalSlides = slides.length;
+    const dotsContainer = document.getElementById('sliderDotsContainer');
+    let autoSlideInterval;
+    
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = `slider-dot ${i === 0 ? 'dot-active' : ''}`;
+            dot.setAttribute('aria-label', `Maps to value slide ${i + 1}`);
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+                restartAutoSlide();
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateSliderPosition() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        const dots = document.querySelectorAll('.slider-dot');
+        dots.forEach((dot, idx) => {
+            if (idx === currentSlide) {
+                dot.classList.add('dot-active');
+            } else {
+                dot.classList.remove('dot-active');
+            }
+        });
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSliderPosition();
+    }
+
+    function moveSlide(direction) {
+        currentSlide += direction;
+        if (currentSlide >= totalSlides) {
+            currentSlide = 0;
+        } else if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+        }
+        updateSliderPosition();
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+    }
+
+    function restartAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    const sliderViewport = document.getElementById('valuesSlider');
+    
+    sliderViewport.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        clearInterval(autoSlideInterval);
+    }, { passive: true });
+
+    sliderViewport.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipeGesture();
+        startAutoSlide();
+    }, { passive: true });
+
+    function handleSwipeGesture() {
+        const threshold = 40;
+        if (touchStartX - touchEndX > threshold) {
+            moveSlide(1);
+        } else if (touchEndX - touchStartX > threshold) {
+            moveSlide(-1);
+        }
+    }
+
+    buildDots();
+    startAutoSlide();
 </script>
