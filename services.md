@@ -136,17 +136,22 @@ title: Professional Suite & Quotation
             <span class="label-meta">Secure Your Quotation</span>
             <h2 style="font-family: serif; font-size: 2rem; margin-top: 5px; margin-bottom: 25px; color: #011F3F;">Get a Price Quote</h2>
             
-            <form action="https://formspree.io/f/your-id" method="POST">
-                <input type="text" name="name" placeholder="Full Name" class="form-input" required>
-                <input type="email" name="email" placeholder="Email Address" class="form-input" required>
-                <input type="text" name="company" placeholder="Company Name (Optional)" class="form-input">
-                <textarea name="message" placeholder="Specific requirements or questions..." class="form-input" style="height: 120px;"></textarea>
+            <form id="nexus-quote-form" style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; gap: 15px;">
+                    <input type="text" name="entry.440124246" placeholder="First Name" class="form-input" style="flex: 1; margin: 0;" required>
+                    <input type="text" name="entry.1440295803" placeholder="Last Name" class="form-input" style="flex: 1; margin: 0;" required>
+                </div>
                 
-                <input type="hidden" name="estimated_total" id="hidden_total" value="₱0">
-                <input type="hidden" name="selected_category" id="hidden_category" value="">
-                <input type="hidden" name="selected_service" id="hidden_service" value="">
-                <button type="submit" style="width: 100%; background: #011F3F; color: white; border: none; padding: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background 0.3s;" onmouseover="this.style.background='#C5A059'" onmouseout="this.style.background='#011F3F'">
-                    Submit Request
+                <input type="email" name="entry.1510499110" placeholder="Business Email Address" class="form-input" style="margin: 0;" required>
+                <input type="tel" name="entry.84122293" placeholder="Contact Number (+63 XXX XXX XXXX)" class="form-input" style="margin: 0;">
+                <textarea name="entry.153965477" placeholder="Specific requirements or notes..." class="form-input" style="height: 120px; margin: 0;"></textarea>
+                
+                <input type="hidden" name="entry.1247618226" id="hidden_total" value="₱0">
+                <input type="hidden" name="entry.1885822597" id="hidden_category" value="">
+                <input type="hidden" name="entry.386645384" id="hidden_service" value="">
+                
+                <button type="submit" id="submit-btn" style="width: 100%; background: #011F3F; color: white; border: none; padding: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background 0.3s; margin-top: 15px;" onmouseover="this.style.background='#C5A059'" onmouseout="this.style.background='#011F3F'">
+                    <span id="btn-text">Submit Request</span>
                 </button>
             </form>
         </div>
@@ -161,6 +166,7 @@ title: Professional Suite & Quotation
 </div>
 
 <script>
+    const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLScNHfbmuT9fKoUltEznVK9KaoPfTNUZ7hSC4ZuSyVbeHaAPbQ/formResponse";
     const serviceData = {
         "ACCOUNTING_SYS": [
             { text: "Accounting System Implementation Support", price: 50000 },
@@ -380,5 +386,44 @@ title: Professional Suite & Quotation
     } else {
         document.getElementById('hidden_service').value = "";
     }
-}
+    }
+
+    // Google Forms No-Cors AJAX Event interceptor
+    document.getElementById('nexus-quote-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const quoteForm = document.getElementById('nexus-quote-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const workflowArea = document.getElementById('calculator-workflow');
+        const successNotif = document.getElementById('success-notification');
+
+        btnText.innerText = "Transmitting...";
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+
+        const formData = new FormData(quoteForm);
+
+        fetch(GOOGLE_FORM_ACTION, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+        })
+        .then(() => {
+            workflowArea.style.display = 'none';
+            successNotif.style.display = 'block';
+            successNotif.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Transmission error. Please check your connection.");
+            btnText.innerText = "Try Again";
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = "1";
+        });
+    });
+
+    window.onload = function() {
+        updateSubServices();
+    };
 </script>
