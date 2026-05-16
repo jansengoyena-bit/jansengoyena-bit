@@ -44,7 +44,7 @@ title: Professional Suite & Quotation
     .selection-side { flex: 1; min-width: 320px; }
     .calculator-side { flex: 0 0 400px; }
 
-    .input-box { margin-bottom: 40px; }
+    .input-box { margin-bottom: 30px; }
     .label-meta {
         font-size: 10px;
         text-transform: uppercase;
@@ -87,6 +87,53 @@ title: Professional Suite & Quotation
         border-top: 1px solid rgba(1, 31, 63, 0.1);
     }
 
+    /* Multi-Quote Cart UI Additions */
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(1, 31, 63, 0.03);
+        border: 1px solid rgba(1, 31, 63, 0.08);
+        padding: 14px 16px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+    .cart-item button {
+        background: none;
+        border: none;
+        color: #dc3545;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 0 5px;
+        transition: transform 0.2s;
+    }
+    .cart-item button:hover {
+        transform: scale(1.2);
+    }
+    .btn-gold {
+        background: #C5A059;
+        color: white;
+        border: none;
+        padding: 16px;
+        width: 100%;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.1s;
+        font-size: 11px;
+        margin-bottom: 35px;
+    }
+    .btn-gold:hover {
+        background: #011F3F;
+    }
+    .btn-gold:active {
+        transform: scale(0.99);
+    }
+
     /* Success state transition animation */
     .animate-fade-in {
         animation: fadeIn 0.6s ease-out forwards;
@@ -124,16 +171,25 @@ title: Professional Suite & Quotation
                 </select>
             </div>
 
-            <div class="input-box" style="margin-bottom: 30px;">
+            <div class="input-box" style="margin-bottom: 20px;">
                 <span class="label-meta">Service Tier / Scope</span>
-                <select id="bookkeeping_choice" onchange="calculateQuote()" class="dropdown-ui">
+                <select id="bookkeeping_choice" class="dropdown-ui">
                     <option value="0">Please select a main category first</option>
                 </select>
             </div>
 
+            <button type="button" onclick="addItemToQuote()" class="btn-gold">
+                + Add Selection to Quote List
+            </button>
+
+            <div id="quote-summary-area" style="margin-bottom: 35px; display: none;">
+                <span class="label-meta">Your Selected Quotation Bundle</span>
+                <div id="cart-items-container"></div>
+            </div>
+
             <div style="background: #011F3F; color: white; padding: 25px 35px; border-radius: 4px; border-left: 5px solid #C5A059; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(1, 31, 63, 0.15);">
                 <div>
-                    <p style="font-size: 10px; color: #C5A059; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 0;">Estimated Total</p>
+                    <p style="font-size: 10px; color: #C5A059; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 0;">Combined Estimated Total</p>
                 </div>
                 <div>
                     <div id="out_total" style="font-size: 2.5rem; color: #C5A059; font-family: serif; font-weight: bold;">₱0</div>
@@ -152,14 +208,20 @@ title: Professional Suite & Quotation
                     
                     <input type="email" name="entry.1510499110" placeholder="Business Email Address" class="form-input" style="margin: 0;" required>
                     <input type="tel" name="entry.84122293" placeholder="Contact Number (+63 XXX XXX XXXX)" class="form-input" style="margin: 0;">
-                    <textarea name="entry.153965477" placeholder="Specific requirements or notes..." class="form-input" style="height: 120px; margin: 0;"></textarea>
                     
+                    <span class="label-meta" style="margin-top: 10px;">Specific Requirements or Notes</span>
+                    <textarea id="user_custom_notes" placeholder="Tell us more about your business needs, custom requests, or timeline milestones here..." class="form-input" style="height: 120px; margin: 0;"></textarea>
+                    
+                    <span class="label-meta" style="margin-top: 10px;">Selected Services Preview</span>
+                    <textarea id="hidden_notes_compiled" class="form-input" style="height: 140px; margin: 0; background-color: rgba(1, 31, 63, 0.04); color: rgba(1, 31, 63, 0.85); border: 1px dashed rgba(1, 31, 63, 0.2); font-family: monospace; font-size: 12px; cursor: default; resize: none;" readonly placeholder="Your selected bundle layout will appear here automatically..."></textarea>
+                    
+                    <input type="hidden" name="entry.386645384" id="form_payload_services">
+                    <input type="hidden" name="entry.153965477" id="form_payload_notes">
                     <input type="hidden" name="entry.1247618226" id="hidden_total" value="₱0">
-                    <input type="hidden" name="entry.1885822597" id="hidden_category" value="">
-                    <input type="hidden" name="entry.386645384" id="hidden_service" value="">
+                    <input type="hidden" name="entry.1885822597" id="hidden_category" value="Multi-Quote Bundle">
                     
                     <button type="submit" id="submit-btn" style="width: 100%; background: #011F3F; color: white; border: none; padding: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background 0.3s; margin-top: 15px;" onmouseover="this.style.background='#C5A059'" onmouseout="this.style.background='#011F3F'">
-                        <span id="btn-text">Submit Request</span>
+                        <span id="btn-text">Submit Bundle Request</span>
                     </button>
                 </form>
             </div>
@@ -196,7 +258,7 @@ title: Professional Suite & Quotation
             { text: "BIR Change of Name and Address", price: 10000 },
             { text: "BIR Change of Tradename", price: 5000 },
             { text: "BIR Closure", price: 10000 },
-            { text: "BIR Closure + Notarial/Transport", price: 12000, breakdown: "₱10,000 + ₱2,000" },
+            { text: "BIR Closure + Notarial/Transport", price: 12000, breakdown: "₱12,000" },
             { text: "BIR Computerized Accounting Software Accreditation", price: 50000 },
             { text: "BIR Registration Amendment", price: 5000 },
             { text: "BIR Registration (Notarial + Transport)", price: 8500 },
@@ -209,9 +271,9 @@ title: Professional Suite & Quotation
             { text: "BPLO Change of Address", price: 1000 },
             { text: "Business Permit Amendment", price: 5000 },
             { text: "Business Permit Closure", price: 1000 },
-            { text: "Business Permit Closure + Notarial/Transport", price: 10000 + 2000, breakdown: "₱10,000 + ₱2,000" },
-            { text: "Business Permit - New/Renewal (Notarial + Transport)", price: 10000 + 2000, breakdown: "₱10,000 + ₱2,000" },
-            { text: "Business Permit Registration (New, Renewal, Updating) + Notarial/Transport", price: 7000 + 1500, breakdown: "₱7,000 + ₱1,500" },
+            { text: "Business Permit Closure + Notarial/Transport", price: 12000, breakdown: "₱10,000 + ₱2,000" },
+            { text: "Business Permit - New/Renewal (Notarial + Transport)", price: 12000, breakdown: "₱10,000 + ₱2,000" },
+            { text: "Business Permit Registration (New, Renewal, Updating) + Notarial/Transport", price: 8500, breakdown: "₱7,000 + ₱1,500" },
             { text: "Closing of BIR Open Cases per Tax Return", price: 500 },
             { text: "Company Valuation", price: 150000 },
             { text: "Copyright Registration", price: 50000 },
@@ -219,7 +281,7 @@ title: Professional Suite & Quotation
             { text: "DTI Change of Business Address", price: 5000 },
             { text: "DTI Change of Territorial Scope", price: 5000 },
             { text: "DTI Closure", price: 10000 },
-            { text: "DTI Closure + Notarial/Transport", price: 10000 + 2000, breakdown: "₱10,000 + ₱2,000" },
+            { text: "DTI Closure + Notarial/Transport", price: 12000, breakdown: "₱10,000 + ₱2,000" },
             { text: "DTI Registration", price: 1500 },
             { text: "eFAST Account", price: 10000 },
             { text: "eFPS Registration", price: 5000 },
@@ -269,7 +331,7 @@ title: Professional Suite & Quotation
             { text: "SEC Amendment Update of Purpose", price: 20000 },
             { text: "SEC Assessment of Open Cases", price: 5000 },
             { text: "SEC assistance filing AFS, ITR and GIS", price: 5000 },
-            { text: "SEC Closure + Notarial/Transport", price: 25000 + 2000, breakdown: "₱25,000 + ₱2,000" },
+            { text: "SEC Closure + Notarial/Transport", price: 27000, breakdown: "₱25,000 + ₱2,000" },
             { text: "SEC Registration", price: 10000 },
             { text: "Secretary's Certificate", price: 3000 },
             { text: "SSS Employer Registration", price: 7000 },
@@ -277,9 +339,9 @@ title: Professional Suite & Quotation
             { text: "Submission of Inventory List", price: 5000 },
             { text: "Sworn Declaration + Notarial/Transport", price: 6500 },
             { text: "Tax Audit Assistance - LOA (Letter of Authority) + 1%", price: 100000 },
-            { text: "Tax Clearance for Biding + Notarial/Transport", price: 5000 + 2000, breakdown: "₱5,000 + ₱2,000" },
-            { text: "Tax Clearance for Verification + Notarial/Transport", price: 5000 + 2000, breakdown: "₱5,000 + ₱2,000" },
-            { text: "Tax Clearance + Notarial/Transport", price: 5000 + 2000, breakdown: "₱5,000 + ₱2,000" },
+            { text: "Tax Clearance for Biding + Notarial/Transport", price: 7000, breakdown: "₱5,000 + ₱2,000" },
+            { text: "Tax Clearance for Verification + Notarial/Transport", price: 7000, breakdown: "₱5,000 + ₱2,000" },
+            { text: "Tax Clearance + Notarial/Transport", price: 7000, breakdown: "₱5,000 + ₱2,000" },
             { text: "Tax Exemption Services", price: 10000 },
             { text: "Tax Return Amendment (Per Tax Return)", price: 2000 },
             { text: "TIN ID / TIN Preparation (Notarial + Transport)", price: 4500 },
@@ -287,7 +349,7 @@ title: Professional Suite & Quotation
             { text: "Trademark Registration", price: 30000 },
             { text: "Transfer of stocks/shares per Transaction/Change of Incorporators", price: 30000 },
             { text: "Treasurer Services", price: 10000 },
-            { text: "Virtual Office Subscription + Notarial Registration", price: 5000 + 2000, breakdown: "₱5,000 + ₱2,000" },
+            { text: "Virtual Office Subscription + Notarial Registration", price: 7000, breakdown: "₱5,000 + ₱2,000" },
             { text: "CPA BOA Accreditation Processing Fee", price: 100000 }
         ],
         "AFS": [
@@ -336,6 +398,8 @@ title: Professional Suite & Quotation
         ]
     };
 
+    let quoteCart = [];
+
     function updateSubServices() {
         const parentSelect = document.getElementById('vo_choice');
         const childSelect = document.getElementById('bookkeeping_choice');
@@ -345,13 +409,12 @@ title: Professional Suite & Quotation
 
         if (!selectedCategory || !serviceData[selectedCategory]) {
             childSelect.innerHTML = '<option value="0">Please select a main category first</option>';
-            calculateQuote();
             return;
         }
 
-        serviceData[selectedCategory].forEach((service) => {
+        serviceData[selectedCategory].forEach((service, index) => {
             const option = document.createElement('option');
-            option.value = service.price;
+            option.value = index;
             
             if (service.breakdown) {
                 option.text = `${service.text} (+${service.breakdown})`;
@@ -361,46 +424,104 @@ title: Professional Suite & Quotation
             
             childSelect.appendChild(option);
         });
-
-        calculateQuote();
     }
 
-    // FIX 3: Dynamic fallback check inside quote calculator for initial page loads
-    function calculateQuote() {
+    function addItemToQuote() {
         const parentSelect = document.getElementById('vo_choice');
         const childSelect = document.getElementById('bookkeeping_choice');
         
-        const selectedParentOption = parentSelect.options[parentSelect.selectedIndex];
-        const selectedChildOption = childSelect.options[childSelect.selectedIndex];
-
-        let total = 0;
-
-        if (selectedChildOption && selectedChildOption.value !== "0") {
-            total = parseInt(selectedChildOption.value) || 0;
+        if (!parentSelect.value || childSelect.value === "0" || childSelect.selectedIndex === -1) {
+            alert("Please pick both a Category and a specific Scope before adding.");
+            return;
         }
 
-        const totalStr = '₱' + total.toLocaleString();
+        const categoryKey = parentSelect.value;
+        const categoryText = parentSelect.options[parentSelect.selectedIndex].text;
+        const itemIndex = parseInt(childSelect.value);
+        const selectedItemRaw = serviceData[categoryKey][itemIndex];
 
+        const isDuplicate = quoteCart.some(item => item.text === selectedItemRaw.text && item.category === categoryText);
+        if (isDuplicate) {
+            alert("This service has already been added to your quotation list.");
+            return;
+        }
+
+        quoteCart.push({
+            category: categoryText,
+            text: selectedItemRaw.text,
+            price: selectedItemRaw.price
+        });
+
+        renderCart();
+    }
+
+    function removeItemFromQuote(index) {
+        quoteCart.splice(index, 1);
+        renderCart();
+    }
+
+    function renderCart() {
+        const container = document.getElementById('cart-items-container');
+        const summaryArea = document.getElementById('quote-summary-area');
+        
+        container.innerHTML = '';
+        
+        if (quoteCart.length === 0) {
+            summaryArea.style.display = 'none';
+            updateTotals(0);
+            return;
+        }
+
+        summaryArea.style.display = 'block';
+        let rollingSum = 0;
+
+        quoteCart.forEach((item, index) => {
+            rollingSum += item.price;
+            
+            const itemRow = document.createElement('div');
+            itemRow.className = 'cart-item';
+            itemRow.innerHTML = `
+                <div>
+                    <strong style="color: #C5A059; font-size: 10px; display:block; text-transform: uppercase; letter-spacing: 1px;">${item.category}</strong>
+                    <span style="color: #011F3F; font-weight: 500;">${item.text}</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span style="font-weight: bold; color: #011F3F;">₱${item.price.toLocaleString()}</span>
+                    <button type="button" onclick="removeItemFromQuote(${index})">&times;</button>
+                </div>
+            `;
+            container.appendChild(itemRow);
+        });
+
+        updateTotals(rollingSum);
+    }
+
+    function updateTotals(totalAmount) {
+        const totalStr = '₱' + totalAmount.toLocaleString();
+        
         document.getElementById('out_total').innerText = totalStr;
         document.getElementById('hidden_total').value = totalStr;
 
-        if (parentSelect.value && selectedParentOption) {
-            document.getElementById('hidden_category').value = selectedParentOption.text;
+        if (quoteCart.length > 0) {
+            let manifestationString = "=== SELECTED SERVICES BUNDLE ===\n";
+            quoteCart.forEach((item, i) => {
+                manifestationString += `${i+1}. [${item.category}] ${item.text} - ₱${item.price.toLocaleString()}\n`;
+            });
+            manifestationString += `\nCombined Estimate: ${totalStr}\n================================`;
+            
+            document.getElementById('hidden_notes_compiled').value = manifestationString;
         } else {
-            document.getElementById('hidden_category').value = "";
-        }
-
-        // Avoid splitting when no real tier option has been clicked yet
-        if (selectedChildOption && selectedChildOption.value !== "0" && parentSelect.value !== "") {
-            const cleanServiceText = selectedChildOption.text.split(' (+')[0];
-            document.getElementById('hidden_service').value = cleanServiceText;
-        } else {
-            document.getElementById('hidden_service').value = "";
+            document.getElementById('hidden_notes_compiled').value = "";
         }
     }
 
     document.getElementById('nexus-quote-form').addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        if (quoteCart.length === 0) {
+            alert("Your quotation bundle is empty. Please add at least one service before submitting.");
+            return;
+        }
         
         const quoteForm = document.getElementById('nexus-quote-form');
         const submitBtn = document.getElementById('submit-btn');
@@ -408,9 +529,15 @@ title: Professional Suite & Quotation
         const workflowArea = document.getElementById('calculator-workflow');
         const successNotif = document.getElementById('success-notification');
 
-        btnText.innerText = "Transmitting...";
+        btnText.innerText = "Transmitting Bundle...";
         submitBtn.disabled = true;
         submitBtn.style.opacity = "0.7";
+
+        // Map the structured manifest directly into entry.386645384 (Selected Services)
+        document.getElementById('form_payload_services').value = document.getElementById('hidden_notes_compiled').value;
+        
+        // Map the user's editable text box directly into entry.153965477 (Notes / Inquiries)
+        document.getElementById('form_payload_notes').value = document.getElementById('user_custom_notes').value;
 
         const formData = new FormData(quoteForm);
 
