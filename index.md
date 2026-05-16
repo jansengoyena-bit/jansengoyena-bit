@@ -61,8 +61,8 @@ title: Home | Espacio Manila
                     We provide everything you need to manage your business effectively, from virtual addresses to regulatory compliance.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#quote" class="bg-[#011F3F] text-white px-10 py-4 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#C5A059] transition-all">Get a Quote</a>
-                    <a href="#inquiry" class="border-2 border-[#011F3F] text-[#011F3F] px-10 py-4 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#011F3F] hover:text-white transition-all">Inquire Now</a>
+                    <a href="/services" class="bg-[#011F3F] text-white px-10 py-4 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#C5A059] transition-all">Get a Quote</a>
+                    <a href="/contact" class="border-2 border-[#011F3F] text-[#011F3F] px-10 py-4 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#011F3F] hover:text-white transition-all">Inquire Now</a>
                 </div>
             </div>
 
@@ -161,7 +161,7 @@ title: Home | Espacio Manila
                     </p>
                     <div id="quote" class="space-y-6">
                         <h4 class="font-bold uppercase tracking-widest text-[11px] mb-2">Get a Custom Quote</h4>
-                        <a href="/quote" class="block w-full text-center bg-[#C5A059] text-navy py-5 font-black uppercase tracking-[0.3em] text-[10px] hover:bg-white transition-all">Get a Quote</a>
+                        <a href="/services" class="block w-full text-center bg-[#C5A059] text-navy py-5 font-black uppercase tracking-[0.3em] text-[10px] hover:bg-white transition-all">Get a Quote</a>
                         
                         <div id="inquiry" class="pt-8 border-t border-white/10">
                             <h4 class="font-bold uppercase tracking-widest text-[11px] mb-4">Have a Question?</h4>
