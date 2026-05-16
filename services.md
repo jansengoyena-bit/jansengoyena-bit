@@ -87,6 +87,15 @@ title: Professional Suite & Quotation
         border-top: 1px solid rgba(1, 31, 63, 0.1);
     }
 
+    /* Success state transition animation */
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 1024px) {
         .calculator-side { flex: 1; width: 100%; }
         .sticky-card { position: relative; top: 0; }
@@ -96,64 +105,70 @@ title: Professional Suite & Quotation
 <div id="espacio-nexus">
 
     <div style="max-width: 650px; margin: 0 auto; padding: 40px 24px 0 24px; text-align: left;">
-      
         <h3 style="color: #011F3F; font-family: serif; font-size: 1rem; margin: 0 0 10px 0; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">
             Espacio Manila Service Quote
         </h3>
-       
     </div>
 
     <div style="max-width: 650px; margin: 0 auto; padding: 40px 24px 60px 24px;">
         
-        <div class="input-box">
-            <span class="label-meta">Services Offered</span>
-            <select id="vo_choice" onchange="updateSubServices()" class="dropdown-ui">
-                <option value="">-- SELECT A CATEGORY --</option>
-                <option value="ACCOUNTING_SYS">COMPLIANCE SERVICES</option>
-                <option value="AFS">AUDITED FINANCIAL STATEMENTS PRICING</option>
-                <option value="BOOKKEEPING_TAX">BOOKKEEPING AND TAX FILING PRICING</option>
-                <option value="END_TO_END">END TO END ACCOUNTING SERVICES</option>
-            </select>
-        </div>
-
-        <div class="input-box" style="margin-bottom: 30px;">
-            <span class="label-meta">Service Tier / Scope</span>
-            <select id="bookkeeping_choice" onchange="calculateQuote()" class="dropdown-ui">
-                <option value="0">Please select a main category first</option>
-            </select>
-        </div>
-
-        <div style="background: #011F3F; color: white; padding: 25px 35px; border-radius: 4px; border-left: 5px solid #C5A059; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(1, 31, 63, 0.15);">
-            <div>
-                <p style="font-size: 10px; color: #C5A059; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 0;">Estimated Total</p>
+        <div id="calculator-workflow">
+            <div class="input-box">
+                <span class="label-meta">Services Offered</span>
+                <select id="vo_choice" onchange="updateSubServices()" class="dropdown-ui">
+                    <option value="">-- SELECT A CATEGORY --</option>
+                    <option value="ACCOUNTING_SYS">COMPLIANCE SERVICES</option>
+                    <option value="AFS">AUDITED FINANCIAL STATEMENTS PRICING</option>
+                    <option value="BOOKKEEPING_TAX">BOOKKEEPING AND TAX FILING PRICING</option>
+                    <option value="END_TO_END">END TO END ACCOUNTING SERVICES</option>
+                </select>
             </div>
-            <div>
-                <div id="out_total" style="font-size: 2.5rem; color: #C5A059; font-family: serif; font-weight: bold;">₱0</div>
-            </div>
-        </div>
 
-        <div style="margin-top: 40px;">
-            <span class="label-meta">Secure Your Quotation</span>
-            <h2 style="font-family: serif; font-size: 2rem; margin-top: 5px; margin-bottom: 25px; color: #011F3F;">Get a Price Quote</h2>
-            
-            <form id="nexus-quote-form" style="display: flex; flex-direction: column; gap: 15px;">
-                <div style="display: flex; gap: 15px;">
-                    <input type="text" name="entry.440124246" placeholder="First Name" class="form-input" style="flex: 1; margin: 0;" required>
-                    <input type="text" name="entry.1440295803" placeholder="Last Name" class="form-input" style="flex: 1; margin: 0;" required>
+            <div class="input-box" style="margin-bottom: 30px;">
+                <span class="label-meta">Service Tier / Scope</span>
+                <select id="bookkeeping_choice" onchange="calculateQuote()" class="dropdown-ui">
+                    <option value="0">Please select a main category first</option>
+                </select>
+            </div>
+
+            <div style="background: #011F3F; color: white; padding: 25px 35px; border-radius: 4px; border-left: 5px solid #C5A059; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(1, 31, 63, 0.15);">
+                <div>
+                    <p style="font-size: 10px; color: #C5A059; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 0;">Estimated Total</p>
                 </div>
+                <div>
+                    <div id="out_total" style="font-size: 2.5rem; color: #C5A059; font-family: serif; font-weight: bold;">₱0</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <span class="label-meta">Secure Your Quotation</span>
+                <h2 style="font-family: serif; font-size: 2rem; margin-top: 5px; margin-bottom: 25px; color: #011F3F;">Get a Price Quote</h2>
                 
-                <input type="email" name="entry.1510499110" placeholder="Business Email Address" class="form-input" style="margin: 0;" required>
-                <input type="tel" name="entry.84122293" placeholder="Contact Number (+63 XXX XXX XXXX)" class="form-input" style="margin: 0;">
-                <textarea name="entry.153965477" placeholder="Specific requirements or notes..." class="form-input" style="height: 120px; margin: 0;"></textarea>
-                
-                <input type="hidden" name="entry.1247618226" id="hidden_total" value="₱0">
-                <input type="hidden" name="entry.1885822597" id="hidden_category" value="">
-                <input type="hidden" name="entry.386645384" id="hidden_service" value="">
-                
-                <button type="submit" id="submit-btn" style="width: 100%; background: #011F3F; color: white; border: none; padding: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background 0.3s; margin-top: 15px;" onmouseover="this.style.background='#C5A059'" onmouseout="this.style.background='#011F3F'">
-                    <span id="btn-text">Submit Request</span>
-                </button>
-            </form>
+                <form id="nexus-quote-form" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: flex; gap: 15px;">
+                        <input type="text" name="entry.440124246" placeholder="First Name" class="form-input" style="flex: 1; margin: 0;" required>
+                        <input type="text" name="entry.1440295803" placeholder="Last Name" class="form-input" style="flex: 1; margin: 0;" required>
+                    </div>
+                    
+                    <input type="email" name="entry.1510499110" placeholder="Business Email Address" class="form-input" style="margin: 0;" required>
+                    <input type="tel" name="entry.84122293" placeholder="Contact Number (+63 XXX XXX XXXX)" class="form-input" style="margin: 0;">
+                    <textarea name="entry.153965477" placeholder="Specific requirements or notes..." class="form-input" style="height: 120px; margin: 0;"></textarea>
+                    
+                    <input type="hidden" name="entry.1247618226" id="hidden_total" value="₱0">
+                    <input type="hidden" name="entry.1885822597" id="hidden_category" value="">
+                    <input type="hidden" name="entry.386645384" id="hidden_service" value="">
+                    
+                    <button type="submit" id="submit-btn" style="width: 100%; background: #011F3F; color: white; border: none; padding: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background 0.3s; margin-top: 15px;" onmouseover="this.style.background='#C5A059'" onmouseout="this.style.background='#011F3F'">
+                        <span id="btn-text">Submit Request</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="success-notification" style="display: none; text-align: center; padding: 60px 20px;" class="animate-fade-in">
+            <h2 style="font-family: serif; font-size: 2.5rem; color: #011F3F; margin-bottom: 10px;">Transmission Received</h2>
+            <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 4px; color: rgba(1, 31, 63, 0.5); margin-bottom: 30px;">We will contact you shortly.</p>
+            <button onclick="location.reload()" style="background: none; border: none; border-bottom: 1px solid #C5A059; color: #C5A059; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; padding-bottom: 4px;">Calculate another scope</button>
         </div>
 
         <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(1, 31, 63, 0.1);">
@@ -290,34 +305,34 @@ title: Professional Suite & Quotation
             { text: "Php 90M – 100M Gross Sales/Assets/Expenses", price: 110000 }
         ],
         "BOOKKEEPING_TAX": [
-        { "text": "NON-VAT less than 1M Gross Sales/Revenues", "price": 1500 },
-        { "text": "NON-VAT Php 1M - 2M Gross Sales/Revenue", "price": 3000 },
-        { "text": "NON-VAT Php 2M - 3M Gross Sales/Revenues", "price": 5000 },
-        { "text": "Php 3M to 10M Gross Sales/Revenues", "price": 6000 },
-        { "text": "Php 10M – 20M Gross Sales/Revenues", "price": 8500 },
-        { "text": "Php 20M – 30M Gross Sales/Revenues", "price": 11000 },
-        { "text": "Php 30M – 40M Gross Sales/Revenues", "price": 13500 },
-        { "text": "Php 40M – 50M Gross Sales/Revenues", "price": 16000 },
-        { "text": "Php 50M – 60M Gross Sales/Revenues", "price": 18500 },
-        { "text": "Php 60M – 70M Gross Sales/Revenues", "price": 21000 },
-        { "text": "Php 70M – 80M Gross Sales/Revenues", "price": 23000 },
-        { "text": "Php 80M – 90M Gross Sales/Revenues", "price": 26000 },
-        { "text": "Php 100M & Above Gross Sales/Revenue", "price": 30000 }
+            { "text": "NON-VAT less than 1M Gross Sales/Revenues", "price": 1500 },
+            { "text": "NON-VAT Php 1M - 2M Gross Sales/Revenue", "price": 3000 },
+            { "text": "NON-VAT Php 2M - 3M Gross Sales/Revenues", "price": 5000 },
+            { "text": "Php 3M to 10M Gross Sales/Revenues", "price": 6000 },
+            { "text": "Php 10M – 20M Gross Sales/Revenues", "price": 8500 },
+            { "text": "Php 20M – 30M Gross Sales/Revenues", "price": 11000 },
+            { "text": "Php 30M – 40M Gross Sales/Revenues", "price": 13500 },
+            { "text": "Php 40M – 50M Gross Sales/Revenues", "price": 16000 },
+            { "text": "Php 50M – 60M Gross Sales/Revenues", "price": 18500 },
+            { "text": "Php 60M – 70M Gross Sales/Revenues", "price": 21000 },
+            { "text": "Php 70M – 80M Gross Sales/Revenues", "price": 23000 },
+            { "text": "Php 80M – 90M Gross Sales/Revenues", "price": 26000 },
+            { "text": "Php 100M & Above Gross Sales/Revenue", "price": 30000 }
         ],
         "END_TO_END": [
-        { "text": "NON-VAT less than 1M Gross Sales/Revenues", "price": 3500 },
-        { "text": "NON-VAT Php 1M - 2M Gross Sales/Revenues", "price": 5000 },
-        { "text": "NON-VAT Php 2M - 3M Gross Sales/Revenues", "price": 7000 },
-        { "text": "Php 3M - 5M Gross Sales/Revenues", "price": 8000 },
-        { "text": "Php 5M - 10M Gross Sales/Revenues", "price": 9000 },
-        { "text": "Php 10M – 20M Gross Sales/Revenues", "price": 10500 },
-        { "text": "Php 20M – 30M Gross Sales/Revenues", "price": 13000 },
-        { "text": "Php 30M – 40M Gross Sales/Revenues", "price": 15500 },
-        { "text": "Php 40M – 50M Gross Sales/Revenues", "price": 18000 },
-        { "text": "Php 50M – 60M Gross Sales/Revenues", "price": 20500 },
-        { "text": "Php 60M – 70M Gross Sales/Revenues", "price": 23000 },
-        { "text": "Php 70M – 80M Gross Sales/Revenues", "price": 25500 },
-        { "text": "Php 80M – 90M Gross Sales/Revenues", "price": 28000 }
+            { "text": "NON-VAT less than 1M Gross Sales/Revenues", "price": 3500 },
+            { "text": "NON-VAT Php 1M - 2M Gross Sales/Revenues", "price": 5000 },
+            { "text": "NON-VAT Php 2M - 3M Gross Sales/Revenues", "price": 7000 },
+            { "text": "Php 3M - 5M Gross Sales/Revenues", "price": 8000 },
+            { "text": "Php 5M - 10M Gross Sales/Revenues", "price": 9000 },
+            { "text": "Php 10M – 20M Gross Sales/Revenues", "price": 10500 },
+            { "text": "Php 20M – 30M Gross Sales/Revenues", "price": 13000 },
+            { "text": "Php 30M – 40M Gross Sales/Revenues", "price": 15500 },
+            { "text": "Php 40M – 50M Gross Sales/Revenues", "price": 18000 },
+            { "text": "Php 50M – 60M Gross Sales/Revenues", "price": 20500 },
+            { "text": "Php 60M – 70M Gross Sales/Revenues", "price": 23000 },
+            { "text": "Php 70M – 80M Gross Sales/Revenues", "price": 25500 },
+            { "text": "Php 80M – 90M Gross Sales/Revenues", "price": 28000 }
         ]
     };
 
@@ -338,7 +353,6 @@ title: Professional Suite & Quotation
             const option = document.createElement('option');
             option.value = service.price;
             
-            // Check if there is a custom breakdown display string
             if (service.breakdown) {
                 option.text = `${service.text} (+${service.breakdown})`;
             } else {
@@ -351,44 +365,40 @@ title: Professional Suite & Quotation
         calculateQuote();
     }
 
+    // FIX 3: Dynamic fallback check inside quote calculator for initial page loads
     function calculateQuote() {
-    const parentSelect = document.getElementById('vo_choice');
-    const childSelect = document.getElementById('bookkeeping_choice');
-    
-    const selectedParentOption = parentSelect.options[parentSelect.selectedIndex];
-    const selectedChildOption = childSelect.options[childSelect.selectedIndex];
+        const parentSelect = document.getElementById('vo_choice');
+        const childSelect = document.getElementById('bookkeeping_choice');
+        
+        const selectedParentOption = parentSelect.options[parentSelect.selectedIndex];
+        const selectedChildOption = childSelect.options[childSelect.selectedIndex];
 
-    let total = 0;
+        let total = 0;
 
-    if (selectedChildOption && selectedChildOption.value !== "0") {
-        total = parseInt(selectedChildOption.value) || 0;
+        if (selectedChildOption && selectedChildOption.value !== "0") {
+            total = parseInt(selectedChildOption.value) || 0;
+        }
+
+        const totalStr = '₱' + total.toLocaleString();
+
+        document.getElementById('out_total').innerText = totalStr;
+        document.getElementById('hidden_total').value = totalStr;
+
+        if (parentSelect.value && selectedParentOption) {
+            document.getElementById('hidden_category').value = selectedParentOption.text;
+        } else {
+            document.getElementById('hidden_category').value = "";
+        }
+
+        // Avoid splitting when no real tier option has been clicked yet
+        if (selectedChildOption && selectedChildOption.value !== "0" && parentSelect.value !== "") {
+            const cleanServiceText = selectedChildOption.text.split(' (+')[0];
+            document.getElementById('hidden_service').value = cleanServiceText;
+        } else {
+            document.getElementById('hidden_service').value = "";
+        }
     }
 
-    const totalStr = '₱' + total.toLocaleString();
-
-    // 1. Update the visible total text element
-    document.getElementById('out_total').innerText = totalStr;
-
-    // 2. Pass total value to form submission
-    document.getElementById('hidden_total').value = totalStr;
-
-    // 3. Pass the actual Category & Service text names to form submission
-    if (parentSelect.value && selectedParentOption) {
-        document.getElementById('hidden_category').value = selectedParentOption.text;
-    } else {
-        document.getElementById('hidden_category').value = "";
-    }
-
-    if (selectedChildOption && selectedChildOption.value !== "0") {
-        // This splits off the (+₱ Amount) suffix so your email text stays perfectly clean
-        const cleanServiceText = selectedChildOption.text.split(' (+')[0];
-        document.getElementById('hidden_service').value = cleanServiceText;
-    } else {
-        document.getElementById('hidden_service').value = "";
-    }
-    }
-
-    // Google Forms No-Cors AJAX Event interceptor
     document.getElementById('nexus-quote-form').addEventListener('submit', function(e) {
         e.preventDefault();
         
