@@ -17,21 +17,97 @@ title: Home | Espacio Manila
         overflow-x: hidden;
     }
     
-    .gold-accent { color: #C5A059; }
+    .gold-accent { color: #C5A059 !important; }
     .bg-navy { background-color: #011F3F; }
     
-    .service-card {
-        background: white;
-        padding: 40px;
-        border: 1px solid rgba(1, 31, 63, 0.05);
-        transition: all 0.5s ease;
+    /* 3. Pure Text Slider Styles (Borders, Cards, and Highlights Removed) */
+    .slider-viewport {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 1200px !important; 
+        margin: 0 auto;
     }
-    .service-card:hover {
-        border-color: #C5A059;
-        transform: translateY(-5px);
+    .slider-track {
+        display: flex;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        width: 100%;
+    }
+    .service-card-wrapper {
+        flex: 0 0 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px; /* Kept side padding for mobile screen safety */
+    }
+    .service-card {
+        background: transparent !important; /* Removed white card block */
+        padding: 40px 0 !important; /* Shifted focus entirely to layout breathing room */
+        border: none !important; /* Stripped container outline constraints */
+        box-shadow: none !important; /* Stripped background elevation tracking */
+        height: 100%;
     }
 
-    /* 3. Footer Visibility Insurance */
+    /* Forced High-Specificity Typography Rules */
+    .slider-title {
+        font-size: 32px !important;
+        font-weight: 900 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.15em !important;
+        margin-bottom: 1.5rem !important;
+        line-height: 1.2 !important;
+    }
+    .slider-description {
+        font-size: 20px !important;
+        line-height: 1.8 !important;
+        color: #2D3748 !important;
+        font-weight: 300 !important;
+    }
+
+    /* Media queries to guarantee responsive display scales */
+    @media (min-width: 768px) {
+        .slider-title {
+            font-size: 30px !important; 
+        }
+        .slider-description {
+            font-size: 30px !important; 
+        }
+    }
+    
+    /* Navigation Indicators */
+    .slider-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(1, 31, 63, 0.15);
+        transition: all 0.3s ease;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+    .slider-dot.dot-active {
+        background-color: #C5A059;
+        width: 36px;
+        border-radius: 5px;
+    }
+    .slider-nav-btn {
+        background: transparent; /* Changed button wrappers to blend transparently */
+        color: #011F3F;
+        border: 1px solid rgba(1, 31, 63, 0.1);
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .slider-nav-btn:hover {
+        background: #011F3F;
+        color: white;
+        border-color: #011F3F;
+    }
+
+    /* 4. Footer Visibility Insurance */
     footer {
         position: relative;
         z-index: 50;
@@ -77,34 +153,69 @@ title: Home | Espacio Manila
         </div>
     </section>
 
-    <section class="py-24 bg-white">
+    <section class="py-28 bg-white">
         <div class="max-w-7xl mx-auto px-8">
             <div class="reveal-up mb-16 text-center">
-                <h2 class="text-3xl md:text-5xl font-serif mb-4">Our Core Services</h2>
-                <div class="w-20 h-1 bg-navy mx-auto"></div>
+                <h2 class="text-4xl md:text-6xl font-serif mb-5">Our Core Services</h2>
+                <div class="w-28 h-1.5 bg-navy mx-auto"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-card reveal-up">
-                    <h3 class="font-black uppercase tracking-widest text-xs gold-accent mb-4">Virtual Office Address</h3>
-                    <p class="text-sm leading-relaxed text-[#2D3748]">Gain a prestigious business address in a prime location without the overhead costs of physical office space.</p>
+            <div class="reveal-up relative max-w-7xl mx-auto">
+                
+                <div class="slider-viewport" id="servicesSlider">
+                    <div class="slider-track" id="sliderTrack">
+                        
+                        <div class="service-card-wrapper">
+                            <div class="service-card text-center">
+                                <h3 class="slider-title gold-accent">Virtual Office Address</h3>
+                                <p class="slider-description max-w-4xl mx-auto">Gain a prestigious business address in a prime location without the overhead costs of physical office space.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card-wrapper">
+                            <div class="service-card text-center">
+                                <h3 class="slider-title gold-accent">Business Registration</h3>
+                                <p class="slider-description max-w-4xl mx-auto">Seamlessly navigate the complexities of business registration, ensuring compliance and peace of mind.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card-wrapper">
+                            <div class="service-card text-center">
+                                <h3 class="slider-title gold-accent">Tax Compliance</h3>
+                                <p class="slider-description max-w-4xl mx-auto">Our expert team takes care of your tax compliance requirements, from registration to filing and reporting.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card-wrapper">
+                            <div class="service-card text-center">
+                                <h3 class="slider-title gold-accent">Meeting Room Access</h3>
+                                <p class="slider-description max-w-4xl mx-auto">Host important meetings and presentations in our modern and equipped meeting rooms.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card-wrapper">
+                            <div class="service-card text-center">
+                                <h3 class="slider-title gold-accent">Additional Solutions</h3>
+                                <p class="slider-description max-w-4xl mx-auto">Benefit from other essential services, including payroll, bookkeeping, and other administrative support to streamline your operations.</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="service-card reveal-up" style="transition-delay: 100ms;">
-                    <h3 class="font-black uppercase tracking-widest text-xs gold-accent mb-4">Business Registration</h3>
-                    <p class="text-sm leading-relaxed text-[#2D3748]">Seamlessly navigate the complexities of business registration, ensuring compliance and peace of mind.</p>
+
+                <div class="flex items-center justify-between max-w-md mx-auto mt-12">
+                    <button class="slider-nav-btn" onclick="moveSlide(-1)" aria-label="Previous slide">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    
+                    <div class="flex gap-3.5" id="sliderDotsContainer">
+                        </div>
+                    
+                    <button class="slider-nav-btn" onclick="moveSlide(1)" aria-label="Next slide">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
                 </div>
-                <div class="service-card reveal-up" style="transition-delay: 200ms;">
-                    <h3 class="font-black uppercase tracking-widest text-xs gold-accent mb-4">Tax Compliance</h3>
-                    <p class="text-sm leading-relaxed text-[#2D3748]">Our expert team takes care of your tax compliance requirements, from registration to filing and reporting.</p>
-                </div>
-                <div class="service-card reveal-up">
-                    <h3 class="font-black uppercase tracking-widest text-xs gold-accent mb-4">Meeting Room Access</h3>
-                    <p class="text-sm leading-relaxed text-[#2D3748]">Host important meetings and presentations in our modern and equipped meeting rooms.</p>
-                </div>
-                <div class="service-card reveal-up lg:col-span-2" style="transition-delay: 100ms;">
-                    <h3 class="font-black uppercase tracking-widest text-xs gold-accent mb-4">Additional Solutions</h3>
-                    <p class="text-sm leading-relaxed text-[#2D3748]">Benefit from other essential services, including payroll, bookkeeping, and other administrative support to streamline your operations.</p>
-                </div>
+
             </div>
         </div>
     </section>
@@ -176,6 +287,7 @@ title: Home | Espacio Manila
 </div>
 
 <script>
+    // Intersection Observer architecture
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('active');
@@ -185,4 +297,93 @@ title: Home | Espacio Manila
     document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach((el) => {
         observer.observe(el);
     });
+
+    // Carousel Text Slider Engine Core Parameters
+    let currentSlide = 0;
+    const track = document.getElementById('sliderTrack');
+    const slides = document.querySelectorAll('.service-card-wrapper');
+    const totalSlides = slides.length;
+    const dotsContainer = document.getElementById('sliderDotsContainer');
+    let autoSlideInterval;
+    
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = `slider-dot ${i === 0 ? 'dot-active' : ''}`;
+            dot.setAttribute('aria-label', `Maps to slide ${i + 1}`);
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+                restartAutoSlide();
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateSliderPosition() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        const dots = document.querySelectorAll('.slider-dot');
+        dots.forEach((dot, idx) => {
+            if (idx === currentSlide) {
+                dot.classList.add('dot-active');
+            } else {
+                dot.classList.remove('dot-active');
+            }
+        });
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSliderPosition();
+    }
+
+    function moveSlide(direction) {
+        currentSlide += direction;
+        if (currentSlide >= totalSlides) {
+            currentSlide = 0;
+        } else if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+        }
+        updateSliderPosition();
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+    }
+
+    function restartAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    const sliderViewport = document.getElementById('servicesSlider');
+    
+    sliderViewport.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        clearInterval(autoSlideInterval);
+    }, { passive: true });
+
+    sliderViewport.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipeGesture();
+        startAutoSlide();
+    }, { passive: true });
+
+    function handleSwipeGesture() {
+        const threshold = 40;
+        if (touchStartX - touchEndX > threshold) {
+            moveSlide(1);
+        } else if (touchEndX - touchStartX > threshold) {
+            moveSlide(-1);
+        }
+    }
+
+    buildDots();
+    startAutoSlide();
 </script>
