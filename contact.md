@@ -10,8 +10,8 @@ title: Contact Us | Espacio Manila
 
                 <div id="form-container" class="p-8 md:p-14">
                     <div class="text-center mb-12">
-                        <h1 class="text-xl md:text-4xl text-[#011F3F] font-bold serif uppercase tracking-tight leading-snug">
-                            Let's Start the <span class="italic text-[#C5A059] font-medium">Conversation</span>
+                        <h1 class="serif uppercase" style="font-size: 30px !important; line-height: 1.3 !important; color: #011F3F !important; font-weight: 700 !important; letter-spacing: -0.02em !important;">
+                            Let's Start the <span class="italic font-medium" style="color: #C5A059 !important; font-size: inherit !important;">Conversation</span>
                         </h1>
                     </div>
 
