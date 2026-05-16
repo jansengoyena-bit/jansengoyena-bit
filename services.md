@@ -209,7 +209,7 @@ title: Professional Suite & Quotation
                     <input type="email" name="entry.1510499110" placeholder="Business Email Address" class="form-input" style="margin: 0;" required>
                     <input type="tel" name="entry.84122293" placeholder="Contact Number (+63 XXX XXX XXXX)" class="form-input" style="margin: 0;">
                     
-                    <span class="label-meta style="margin-top: 10px;">Specific Requirements or Notes</span>
+                    <span class="label-meta" style="margin-top: 10px;">Specific Requirements or Notes</span>
                     <textarea id="user_custom_notes" placeholder="Tell us more about your business needs, custom requests, or timeline milestones here..." class="form-input" style="height: 120px; margin: 0;"></textarea>
                     
                     <span class="label-meta" style="margin-top: 10px;">Selected Services Preview</span>
