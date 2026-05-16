@@ -10,7 +10,7 @@ title: Contact Us | Espacio Manila
 
                 <div id="form-container" class="p-8 md:p-14">
                     <div class="text-center mb-12">
-                        <h1 class="text-2xl md:text-4xl text-[#011F3F] font-bold serif uppercase tracking-tight">
+                        <h1 class="text-xl md:text-4xl text-[#011F3F] font-bold serif uppercase tracking-tight leading-snug">
                             Let's Start the <span class="italic text-[#C5A059] font-medium">Conversation</span>
                         </h1>
                     </div>
@@ -108,12 +108,10 @@ title: Contact Us | Espacio Manila
         display: none !important;
     }
 
-    /* 3. Ensure the Form actually hides when the Success Message appears */
     #nexus-contact-form.hidden {
         display: none !important;
     }
 
-    /* 4. Smooth Animation for the Success Message */
     .animate-fade-in {
         animation: fadeIn 0.6s ease-out forwards;
     }
