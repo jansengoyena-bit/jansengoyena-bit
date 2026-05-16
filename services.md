@@ -143,7 +143,8 @@ title: Professional Suite & Quotation
                 <textarea name="message" placeholder="Specific requirements or questions..." class="form-input" style="height: 120px;"></textarea>
                 
                 <input type="hidden" name="estimated_total" id="hidden_total" value="₱0">
-                
+                <input type="hidden" name="selected_category" id="hidden_category" value="">
+                <input type="hidden" name="selected_service" id="hidden_service" value="">
                 <button type="submit" style="width: 100%; background: #011F3F; color: white; border: none; padding: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background 0.3s;" onmouseover="this.style.background='#C5A059'" onmouseout="this.style.background='#011F3F'">
                     Submit Request
                 </button>
@@ -345,22 +346,39 @@ title: Professional Suite & Quotation
     }
 
     function calculateQuote() {
-        const childSelect = document.getElementById('bookkeeping_choice');
-        const selectedOption = childSelect.options[childSelect.selectedIndex];
+    const parentSelect = document.getElementById('vo_choice');
+    const childSelect = document.getElementById('bookkeeping_choice');
+    
+    const selectedParentOption = parentSelect.options[parentSelect.selectedIndex];
+    const selectedChildOption = childSelect.options[childSelect.selectedIndex];
 
-        let total = 0;
+    let total = 0;
 
-        if (selectedOption && selectedOption.value !== "0") {
-            total = parseInt(selectedOption.value) || 0;
-        }
-
-        const totalStr = '₱' + total.toLocaleString();
-
-        document.getElementById('out_total').innerText = totalStr;
-        document.getElementById('hidden_total').value = totalStr;
+    if (selectedChildOption && selectedChildOption.value !== "0") {
+        total = parseInt(selectedChildOption.value) || 0;
     }
 
-    window.onload = function() {
-        updateSubServices();
-    };
+    const totalStr = '₱' + total.toLocaleString();
+
+    // 1. Update the visible total text element
+    document.getElementById('out_total').innerText = totalStr;
+
+    // 2. Pass total value to form submission
+    document.getElementById('hidden_total').value = totalStr;
+
+    // 3. Pass the actual Category & Service text names to form submission
+    if (parentSelect.value && selectedParentOption) {
+        document.getElementById('hidden_category').value = selectedParentOption.text;
+    } else {
+        document.getElementById('hidden_category').value = "";
+    }
+
+    if (selectedChildOption && selectedChildOption.value !== "0") {
+        // This splits off the (+₱ Amount) suffix so your email text stays perfectly clean
+        const cleanServiceText = selectedChildOption.text.split(' (+')[0];
+        document.getElementById('hidden_service').value = cleanServiceText;
+    } else {
+        document.getElementById('hidden_service').value = "";
+    }
+}
 </script>
