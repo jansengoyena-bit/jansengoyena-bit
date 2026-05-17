@@ -136,106 +136,6 @@ title: Home | Espacio Manila
         </div>
     </section>
 
-    <section class="py-24 bg-[#F9F6F0] border-t border-b border-navy/5">
-        <div class="max-w-4xl mx-auto px-8 text-center">
-            <div class="reveal-up mb-12">
-                <h2 class="text-4xl md:text-5xl font-serif text-[#011F3F] tracking-tight">What Our Clients Say About Us</h2>
-            </div>
-
-            <div class="reveal-up review-viewport" id="reviewsSlider">
-                <div class="review-track" id="reviewTrack">
-                    
-                    <div class="review-card-wrapper">
-                        <div class="review-card flex flex-col items-center">
-                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
-                            </div>
-                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
-                                "Espacio Manila helped me out of a very sticky business registration bottleneck created by the neglect of a former consulting group. I have nothing but the highest praise for this team and the people working there. My ongoing experience is just as positive."
-                            </blockquote>
-                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Maria Santos, TechFoundry Inc.</cite>
-                        </div>
-                    </div>
-
-                    <div class="review-card-wrapper">
-                        <div class="review-card flex flex-col items-center">
-                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
-                            </div>
-                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
-                                "Having a prestigious business address in a prime location without overhead costs transformed our brand presence overnight. Their handling of our tax compliance requirements is flawless, efficient, and gives us true peace of mind."
-                            </blockquote>
-                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Shane Miller, Global Trade Solutions</cite>
-                        </div>
-                    </div>
-
-                    <div class="review-card-wrapper">
-                        <div class="review-card flex flex-col items-center">
-                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
-                            </div>
-                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
-                                "Their end-to-end support framework across payroll management, corporate filings, and modern physical meeting rooms allowed us to launch operations safely and cleanly in record time. Phenomenal value architectural setup."
-                            </blockquote>
-                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Anna Lim, Creative Hive Studios</cite>
-                        </div>
-                    </div>
-
-                    <div class="review-card-wrapper">
-                        <div class="review-card flex flex-col items-center">
-                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
-                            </div>
-                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
-                                "As a foreign business owner breaking into the regional marketplace, handling statutory declarations can feel like a minefield. Espacio Manila handled everything transparently, removing a tremendous amount of structural weight off our backs."
-                            </blockquote>
-                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— David Vance, NexaCore Logistics</cite>
-                        </div>
-                    </div>
-
-                    <div class="review-card-wrapper">
-                        <div class="review-card flex flex-col items-center">
-                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
-                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
-                            </div>
-                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
-                                "The sheer flexibility of accessing high-end, professionally styled meeting boardrooms exactly when we need to sign physical asset deeds or host stakeholders is incomparable. Best strategic choice we made this fiscal year."
-                            </blockquote>
-                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Elena Rostova, Vertex Capital Partners</cite>
-                        </div>
-                    </div>
-
-                    <div class="review-card-wrapper">
-                        <div class="review-card flex flex-col items-center">
-                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
-                            </div>
-                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
-                                "Their administrative ecosystem is smooth and tightly integrated. Mail handling alerts arrive cleanly without lagging, and bookkeeping logs are structured with accurate microservice precision. Highly recommended for remote-first squads."
-                            </blockquote>
-                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Jonathan Mercer, CloudSync Software</cite>
-                        </div>
-                    </div>
-
-                    <div class="review-card-wrapper">
-                        <div class="review-card flex flex-col items-center">
-                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
-                            </div>
-                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
-                                "Navigating bureaucratic filings for agricultural and manufacturing startups is complex. Their expert consultation framework streamlined our local compliance paths elegantly, leaving us entirely free to optimize production scales."
-                            </blockquote>
-                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Clara Valenzuela, TerraGrow Agribusiness</cite>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="flex justify-center flex-wrap max-w-lg mx-auto gap-3 mt-8" id="reviewDotsContainer"></div>
-        </div>
-    </section>
-
     <section class="py-28 bg-white">
         <div class="max-w-7xl mx-auto px-8">
             <div class="reveal-up mb-16 text-center">
@@ -355,6 +255,106 @@ title: Home | Espacio Manila
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#F9F6F0] border-t border-b border-navy/5">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+            <div class="reveal-up mb-12">
+                <h2 class="text-4xl md:text-5xl font-serif text-[#011F3F] tracking-tight">What Our Clients Say About Us</h2>
+            </div>
+
+            <div class="reveal-up review-viewport" id="reviewsSlider">
+                <div class="review-track" id="reviewTrack">
+                    
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "Espacio Manila helped me out of a very sticky business registration bottleneck created by the neglect of a former consulting group. I have nothing but the highest praise for this team and the people working there. My ongoing experience is just as positive."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Maria Santos, TechFoundry Inc.</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "Having a prestigious business address in a prime location without overhead costs transformed our brand presence overnight. Their handling of our tax compliance requirements is flawless, efficient, and gives us true peace of mind."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Shane Miller, Global Trade Solutions</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "Their end-to-end support framework across payroll management, corporate filings, and modern physical meeting rooms allowed us to launch operations safely and cleanly in record time. Phenomenal value architectural setup."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Anna Lim, Creative Hive Studios</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "As a foreign business owner breaking into the regional marketplace, handling statutory declarations can feel like a minefield. Espacio Manila handled everything transparently, removing a tremendous amount of structural weight off our backs."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— David Vance, NexaCore Logistics</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "The sheer flexibility of accessing high-end, professionally styled meeting boardrooms exactly when we need to sign physical asset deeds or host stakeholders is incomparable. Best strategic choice we made this fiscal year."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Elena Rostova, Vertex Capital Partners</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "Their administrative ecosystem is smooth and tightly integrated. Mail handling alerts arrive cleanly without lagging, and bookkeeping logs are structured with accurate microservice precision. Highly recommended for remote-first squads."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Jonathan Mercer, CloudSync Software</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "Navigating bureaucratic filings for agricultural and manufacturing startups is complex. Their expert consultation framework streamlined our local compliance paths elegantly, leaving us entirely free to optimize production scales."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Clara Valenzuela, TerraGrow Agribusiness</cite>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="flex justify-center flex-wrap max-w-lg mx-auto gap-3 mt-8" id="reviewDotsContainer"></div>
         </div>
     </section>
 
