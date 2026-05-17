@@ -152,20 +152,54 @@ title: Professional Suite & Quotation
         height: 140px; 
         margin: 0; 
         background-color: rgba(1, 31, 63, 0.02); 
-        color: rgba(1, 31, 63, 0.65); /* Slightly lighter text for elegance */
+        color: rgba(1, 31, 63, 0.65); 
         border: 1px dashed rgba(1, 31, 63, 0.2); 
-        
-        /* FIX: Highly compact, premium modern sans-serif font stack */
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-        font-size: 10px;          /* FIX: Shifted from 11px down to a crisp 10px */
-        letter-spacing: 0.5px;   /* Added subtle spacing for better legibility at small sizes */
-        line-height: 1.7;        /* Slightly wider line gap so small text stays readable */
-        
+        font-size: 10px;          
+        letter-spacing: 0.5px;   
+        line-height: 1.7;        
         padding: 14px;
         overflow-y: auto;
         white-space: pre-wrap;
         cursor: default;
         border-radius: 4px;
+    }
+
+    /* Process Flow Styles for Onboarding Steps */
+    .onboarding-steps {
+        max-width: 480px;
+        margin: 35px auto;
+        text-align: left;
+    }
+    .step-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 16px 0;
+        border-bottom: 1px dashed rgba(1, 31, 63, 0.08);
+    }
+    .step-item:last-child {
+        border-bottom: none;
+    }
+    .step-badge {
+        background: #011F3F;
+        color: #C5A059;
+        font-size: 11px;
+        font-weight: bold;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 1px;
+    }
+    .step-text {
+        font-size: 13px;
+        color: #011F3F;
+        line-height: 1.5;
+        font-weight: 400;
     }
 </style>
 
@@ -247,10 +281,36 @@ title: Professional Suite & Quotation
             </div>
         </div>
 
-        <div id="success-notification" style="display: none; text-align: center; padding: 60px 20px;" class="animate-fade-in">
-            <h2 style="font-family: serif; font-size: 2.5rem; color: #011F3F; margin-bottom: 10px;">Transmission Received</h2>
-            <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 4px; color: rgba(1, 31, 63, 0.5); margin-bottom: 30px;">We will contact you shortly.</p>
-            <button onclick="location.reload()" style="background: none; border: none; border-bottom: 1px solid #C5A059; color: #C5A059; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; padding-bottom: 4px;">Calculate another scope</button>
+        <div id="success-notification" style="display: none; padding: 40px 10px; text-align: center;" class="animate-fade-in">
+            <div style="color: #C5A059; font-size: 40px; margin-bottom: 20px;"><i class="fa-solid fa-circle-check"></i></div>
+            <h2 style="font-family: serif; font-size: 1.8rem; color: #011F3F; margin-bottom: 12px; line-height: 1.3; max-width: 550px; margin-left: auto; margin-right: auto;">
+                We already accept your inquiry/quotation request we will respond to you shortly.
+            </h2>
+            
+            <div class="onboarding-steps">
+                <span class="label-meta" style="margin-bottom: 20px; text-align: center;">Next Execution Steps</span>
+                
+                <div class="step-item">
+                    <div class="step-badge">1</div>
+                    <div class="step-text">Our sales representative will contact you to discuss your needs.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-badge">2</div>
+                    <div class="step-text">Send final quotation for signature.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-badge">3</div>
+                    <div class="step-text">Pay the downpayment.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-badge">4</div>
+                    <div class="step-text">Start the engagement.</div>
+                </div>
+            </div>
+
+            <button onclick="location.reload()" style="background: none; border: none; border-bottom: 1px solid #C5A059; color: #C5A059; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; padding-bottom: 4px; margin-top: 20px;">
+                Calculate another scope
+            </button>
         </div>
 
         <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(1, 31, 63, 0.1);">
@@ -450,7 +510,6 @@ title: Professional Suite & Quotation
         const parentSelect = document.getElementById('vo_choice');
         const childSelect = document.getElementById('bookkeeping_choice');
         
-        // FIX: Verify that a valid category is selected and the child selector is not empty or pointing to the fallback string.
         if (!parentSelect.value || childSelect.value === "placeholder_fallback" || childSelect.selectedIndex === -1) {
             alert("Please pick both a Category and a specific Scope before adding.");
             return;
@@ -530,11 +589,9 @@ title: Professional Suite & Quotation
             });
             manifestationString += `\nCombined Estimate: ${totalStr}\n================================`;
             
-            // FIX: Changed .value to .innerText to cleanly inject text structure into a div element
             document.getElementById('hidden_notes_compiled').innerText = manifestationString;
         } else {
-        // FIX: Clean text alignment string matching the premium tone
-        document.getElementById('hidden_notes_compiled').innerText = "Selected services bundle manifest will automatically compile here...";
+            document.getElementById('hidden_notes_compiled').innerText = "Selected services bundle manifest will automatically compile here...";
         }
     }
 
@@ -556,10 +613,7 @@ title: Professional Suite & Quotation
         submitBtn.disabled = true;
         submitBtn.style.opacity = "0.7";
 
-        // Map the structured manifest directly into entry.386645384 (Selected Services)
-        document.getElementById('form_payload_services').value = document.getElementById('hidden_notes_compiled').value;
-        
-        // Map the user's editable text box directly into entry.153965477 (Notes / Inquiries)
+        document.getElementById('form_payload_services').value = document.getElementById('hidden_notes_compiled').innerText;
         document.getElementById('form_payload_notes').value = document.getElementById('user_custom_notes').value;
 
         const formData = new FormData(quoteForm);
