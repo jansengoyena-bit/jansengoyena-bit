@@ -147,6 +147,26 @@ title: Professional Suite & Quotation
         .calculator-side { flex: 1; width: 100%; }
         .sticky-card { position: relative; top: 0; }
     }
+
+    .premium-preview-box {
+        height: 140px; 
+        margin: 0; 
+        background-color: rgba(1, 31, 63, 0.02); 
+        color: rgba(1, 31, 63, 0.65); /* Slightly lighter text for elegance */
+        border: 1px dashed rgba(1, 31, 63, 0.2); 
+        
+        /* FIX: Highly compact, premium modern sans-serif font stack */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+        font-size: 10px;          /* FIX: Shifted from 11px down to a crisp 10px */
+        letter-spacing: 0.5px;   /* Added subtle spacing for better legibility at small sizes */
+        line-height: 1.7;        /* Slightly wider line gap so small text stays readable */
+        
+        padding: 14px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        cursor: default;
+        border-radius: 4px;
+    }
 </style>
 
 <div id="espacio-nexus">
@@ -211,9 +231,9 @@ title: Professional Suite & Quotation
                     
                     <span class="label-meta" style="margin-top: 10px;">Specific Requirements or Notes</span>
                     <textarea id="user_custom_notes" placeholder="Tell us more about your business needs, custom requests, or timeline milestones here..." class="form-input" style="height: 120px; margin: 0;"></textarea>
-                    
+
                     <span class="label-meta" style="margin-top: 10px;">Selected Services Preview</span>
-                    <textarea id="hidden_notes_compiled" class="form-input" style="height: 140px; margin: 0; background-color: rgba(1, 31, 63, 0.04); color: rgba(1, 31, 63, 0.85); border: 1px dashed rgba(1, 31, 63, 0.2); font-family: monospace; font-size: 12px; cursor: default; resize: none;" readonly placeholder="Your selected bundle layout will appear here automatically..."></textarea>
+                    <div id="hidden_notes_compiled" class="premium-preview-box">Your selected bundle layout will appear here automatically...</div>
                     
                     <input type="hidden" name="entry.386645384" id="form_payload_services">
                     <input type="hidden" name="entry.153965477" id="form_payload_notes">
@@ -510,9 +530,11 @@ title: Professional Suite & Quotation
             });
             manifestationString += `\nCombined Estimate: ${totalStr}\n================================`;
             
-            document.getElementById('hidden_notes_compiled').value = manifestationString;
+            // FIX: Changed .value to .innerText to cleanly inject text structure into a div element
+            document.getElementById('hidden_notes_compiled').innerText = manifestationString;
         } else {
-            document.getElementById('hidden_notes_compiled').value = "";
+        // FIX: Clean text alignment string matching the premium tone
+        document.getElementById('hidden_notes_compiled').innerText = "Selected services bundle manifest will automatically compile here...";
         }
     }
 
