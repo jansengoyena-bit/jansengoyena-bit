@@ -89,23 +89,6 @@ title: Home | Espacio Manila
         width: 36px;
         border-radius: 5px;
     }
-    .slider-nav-btn {
-        background: transparent; 
-        color: #011F3F;
-        border: 1px solid rgba(1, 31, 63, 0.1);
-        width: 56px;
-        height: 56px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    .slider-nav-btn:hover {
-        background: #011F3F;
-        color: white;
-        border-color: #011F3F;
-    }
 
     /* 4. Footer Visibility Insurance */
     footer {
@@ -303,16 +286,8 @@ title: Home | Espacio Manila
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between max-w-md mx-auto mt-12">
-                    <button class="slider-nav-btn" onclick="moveSlide(-1)" aria-label="Previous slide">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    </button>
-                    
+                <div class="flex items-center justify-center max-w-md mx-auto mt-12">
                     <div class="flex gap-3.5" id="sliderDotsContainer"></div>
-                    
-                    <button class="slider-nav-btn" onclick="moveSlide(1)" aria-label="Next slide">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </button>
                 </div>
 
             </div>
