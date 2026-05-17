@@ -284,7 +284,7 @@ title: Professional Suite & Quotation
         <div id="success-notification" style="display: none; padding: 40px 10px; text-align: center;" class="animate-fade-in">
             <div style="color: #C5A059; font-size: 40px; margin-bottom: 20px;"><i class="fa-solid fa-circle-check"></i></div>
             <h2 style="font-family: serif; font-size: 1.8rem; color: #011F3F; margin-bottom: 12px; line-height: 1.3; max-width: 550px; margin-left: auto; margin-right: auto;">
-                We already accept your inquiry/quotation request we will respond to you shortly.
+                We already accept your inquiry/quotation request. We will respond to you shortly.
             </h2>
             
             <div class="onboarding-steps">
