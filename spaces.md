@@ -137,6 +137,76 @@ title: Virtual Office Solutions | Espacio Manila
         color: #2D3748;
         font-weight: 300;
     }
+
+    /* Office Showcase Layout Rules */
+    .office-viewer-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        background-color: #011F3F;
+    }
+    .office-img-node {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .office-img-node.img-visible {
+        opacity: 0.85;
+    }
+
+    /* Photo indicator dots with internal tracking states */
+    .photo-dots-indicator {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        display: flex;
+        gap: 6px;
+        z-index: 20;
+        background: rgba(1, 31, 63, 0.4);
+        padding: 6px 10px;
+        border-radius: 20px;
+        backdrop-filter: blur(4px);
+    }
+    .photo-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        transition: all 0.3s ease;
+    }
+    .photo-dot.active-photo-dot {
+        background: #C5A059;
+        transform: scale(1.25);
+    }
+
+    /* Numbered Customer Review Tracker Dots */
+    .review-dot-numbered {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 1px solid rgba(1, 31, 63, 0.15);
+        color: #011F3F;
+        font-size: 11px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .review-dot-numbered.dot-active {
+        background-color: #C5A059;
+        border-color: #C5A059;
+        color: #011F3F;
+        transform: scale(1.1);
+    }
 </style>
 
 <div id="espacio-virtual-office">
@@ -166,6 +236,84 @@ title: Virtual Office Solutions | Espacio Manila
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <section class="py-28 bg-[#FBF9F4] border-t border-[#011F3F]/5">
+        <div class="max-w-7xl mx-auto px-8">
+            
+            <div class="reveal-up mb-20 text-center">
+                <span class="text-[10px] uppercase tracking-[0.4em] text-[#011F3F]/50 block mb-3">Prestigious Legal Anchors</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-light text-[#011F3F]">Our Premium Locations</h2>
+                <div class="w-20 h-[1px] bg-[#011F3F]/20 mx-auto mt-5"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
+                
+                <div class="reveal-up flex flex-col bg-white border border-navy/5 shadow-sm rounded-sm overflow-hidden" data-location-card="makati">
+                    <div class="office-viewer-frame" id="makatiViewer">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Makati Boardroom Option" class="office-img-node img-visible filter grayscale contrast-110">
+                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800" alt="Makati Open Desk Framework" class="office-img-node filter grayscale contrast-110">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=800" alt="Makati Executive Layout" class="office-img-node filter grayscale contrast-110">
+                        <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&q=80&w=800" alt="Makati Shared Lounge Area" class="office-img-node filter grayscale contrast-110">
+                        
+                        <div class="photo-dots-indicator" id="makatiPhotoDots"></div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-[0.25em] text-[#C5A059] font-bold block mb-2">Central Business District</span>
+                            <h3 class="text-2xl font-serif font-normal text-[#011F3F] mb-4">Makati City</h3>
+                            <p class="text-sm font-light text-[#2D3748] leading-relaxed mb-6">
+                                Establish prominence in the financial core of the Philippines. Perfect for institutional credibility, corporate filings, and high-stakes investor board meetings.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-navy/5 flex items-center justify-between text-xs font-medium text-[#011F3F]">
+                            <span>Hours: 8:00 AM – 5:00 PM</span>
+                            <span class="gold-accent uppercase tracking-widest text-[10px] font-bold">Active Branch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-up flex flex-col bg-white border border-navy/5 shadow-sm rounded-sm overflow-hidden" data-location-card="ortigas">
+                    <div class="office-viewer-frame" id="ortigasViewer">
+                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800" alt="Ortigas Facility Lounge" class="office-img-node img-visible filter grayscale contrast-110">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=800" alt="Ortigas Dedicated Conference Setup" class="office-img-node filter grayscale contrast-110">
+                        <img src="https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?auto=format&fit=crop&q=80&w=800" alt="Ortigas Minimal Private Suite" class="office-img-node filter grayscale contrast-110">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Ortigas Shared Workspace Wing" class="office-img-node filter grayscale contrast-110">
+                        
+                        <div class="photo-dots-indicator" id="ortigasPhotoDots"></div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-[0.25em] text-[#C5A059] font-bold block mb-2">Strategic Tech & Commerce</span>
+                            <h3 class="text-2xl font-serif font-normal text-[#011F3F] mb-4">Ortigas Center</h3>
+                            <p class="text-sm font-light text-[#2D3748] leading-relaxed mb-6">
+                                Positioned perfectly at the geographic intersection of metro commercial routes. High-tier building infrastructure optimizing access for distributed digital teams.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-navy/5 flex items-center justify-between text-xs font-medium text-[#011F3F]">
+                            <span>Hours: 8:00 AM – 5:00 PM</span>
+                            <span class="gold-accent uppercase tracking-widest text-[10px] font-bold">Active Branch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-up flex flex-col bg-transparent border-2 border-dashed border-[#011F3F]/10 rounded-sm relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-[#011F3F]/5 pointer-events-none"></div>
+                    <div class="p-10 my-auto text-center flex flex-col items-center justify-center">
+                        <div class="w-16 h-16 rounded-full bg-[#011F3F]/5 flex items-center justify-center mb-6 text-[#C5A059]">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-[0.3em] gold-accent font-bold block mb-2">Expansion Horizon</span>
+                        <h3 class="text-3xl font-serif font-light text-[#011F3F] mb-4">Quezon City</h3>
+                        <p class="text-sm font-light text-[#2D3748]/70 leading-relaxed max-w-xs mb-6">
+                            Unlocking premium operational legal frameworks soon in the north cluster's most expansive innovation district.
+                        </p>
+                        <span class="inline-block px-4 py-2 border border-[#011F3F]/20 text-[9px] uppercase tracking-[0.25em] font-bold text-[#011F3F]/60">Opening Soon</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -371,7 +519,7 @@ title: Virtual Office Solutions | Espacio Manila
                     </button>
                     <div class="faq-content">
                         <div class="faq-text">
-                            We have two (2) locations for virtual office: Makati City and Muntinlupa City. Both offices operate under the same business hours, from 8:00 AM to 5:00 PM.
+                            We have two (2) locations for virtual office: Makati City and Ortigas Center. Both offices operate under the same business hours, from 8:00 AM to 5:00 PM.
                         </div>
                     </div>
                 </div>
@@ -548,7 +696,6 @@ title: Virtual Office Solutions | Espacio Manila
             contentPanel.style.maxHeight = '0px';
             icon.innerHTML = '&#43;';
         } else {
-            // Collapse any currently open sections first for a premium interaction profile
             document.querySelectorAll('.faq-content').forEach(panel => panel.style.maxHeight = '0px');
             document.querySelectorAll('.faq-icon').forEach(ico => ico.innerHTML = '&#43;');
             
@@ -557,6 +704,48 @@ title: Virtual Office Solutions | Espacio Manila
         }
     }
 
+    // Office Image Slide-Fade Loop Engine with Explicit Indicators
+    function setupOfficeImageSliders() {
+        const viewports = ['makati', 'ortigas'];
+        
+        viewports.forEach(location => {
+            const container = document.getElementById(`${location}Viewer`);
+            const indicatorContainer = document.getElementById(`${location}PhotoDots`);
+            if (!container || !indicatorContainer) return;
+            
+            const images = container.querySelectorAll('.office-img-node');
+            const totalPhotos = images.length;
+            
+            indicatorContainer.innerHTML = '';
+            for (let i = 0; i < totalPhotos; i++) {
+                const dot = document.createElement('span');
+                dot.className = `photo-dot ${i === 0 ? 'active-photo-dot' : ''}`;
+                indicatorContainer.appendChild(dot);
+            }
+            
+            const photoDotsNodes = indicatorContainer.querySelectorAll('.photo-dot');
+            let idx = 0;
+            
+            setInterval(() => {
+                images[idx].classList.remove('img-visible');
+                photoDotsNodes[idx].classList.remove('active-photo-dot');
+                
+                idx = (idx + 1) % totalPhotos;
+                
+                images[idx].classList.add('img-visible');
+                photoDotsNodes[idx].classList.add('active-photo-dot');
+            }, 4500);
+        });
+    }
+
+    // Fix factual discrepancy in location text from source raw template file
+    document.querySelectorAll('.faq-text').forEach(faq => {
+        if(faq.innerText.includes('Makati City and Muntinlupa City')) {
+            faq.innerText = faq.innerText.replace('Muntinlupa City', 'Ortigas Center');
+        }
+    });
+
     renderNavigationDots();
     launchAutoMoveSequence();
+    setupOfficeImageSliders();
 </script>
