@@ -21,29 +21,29 @@ title: Home | Espacio Manila
     .bg-navy { background-color: #011F3F; }
     
     /* 3. Pure Text Slider Styles (Borders, Cards, and Highlights Removed) */
-    .slider-viewport {
+    .slider-viewport, .review-viewport {
         position: relative;
         overflow: hidden;
         width: 100%;
         max-width: 1200px !important; 
         margin: 0 auto;
     }
-    .slider-track {
+    .slider-track, .review-track {
         display: flex;
         transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         width: 100%;
     }
-    .service-card-wrapper {
+    .service-card-wrapper, .review-card-wrapper {
         flex: 0 0 100%;
         width: 100%;
         box-sizing: border-box;
-        padding: 0 20px; /* Kept side padding for mobile screen safety */
+        padding: 0 20px; 
     }
-    .service-card {
-        background: transparent !important; /* Removed white card block */
-        padding: 40px 0 !important; /* Shifted focus entirely to layout breathing room */
-        border: none !important; /* Stripped container outline constraints */
-        box-shadow: none !important; /* Stripped background elevation tracking */
+    .service-card, .review-card {
+        background: transparent !important; 
+        padding: 40px 0 !important; 
+        border: none !important; 
+        box-shadow: none !important; 
         height: 100%;
     }
 
@@ -74,23 +74,23 @@ title: Home | Espacio Manila
     }
     
     /* Navigation Indicators */
-    .slider-dot {
+    .slider-dot, .review-dot {
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background-color: rgba(1, 31, 63, 0.15);
+        background-color: rgba(1, 31, 63, 0.13);
         transition: all 0.3s ease;
         border: none;
         padding: 0;
         cursor: pointer;
     }
-    .slider-dot.dot-active {
+    .slider-dot.dot-active, .review-dot.dot-active {
         background-color: #C5A059;
         width: 36px;
         border-radius: 5px;
     }
     .slider-nav-btn {
-        background: transparent; /* Changed button wrappers to blend transparently */
+        background: transparent; 
         color: #011F3F;
         border: 1px solid rgba(1, 31, 63, 0.1);
         width: 56px;
@@ -153,6 +153,106 @@ title: Home | Espacio Manila
         </div>
     </section>
 
+    <section class="py-24 bg-[#F9F6F0] border-t border-b border-navy/5">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+            <div class="reveal-up mb-12">
+                <h2 class="text-4xl md:text-5xl font-serif text-[#011F3F] tracking-tight">What Our Clients Say About Us</h2>
+            </div>
+
+            <div class="reveal-up review-viewport" id="reviewsSlider">
+                <div class="review-track" id="reviewTrack">
+                    
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "Espacio Manila helped me out of a very sticky business registration bottleneck created by the neglect of a former consulting group. I have nothing but the highest praise for this team and the people working there. My ongoing experience is just as positive."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Maria Santos, TechFoundry Inc.</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "Having a prestigious business address in a prime location without overhead costs transformed our brand presence overnight. Their handling of our tax compliance requirements is flawless, efficient, and gives us true peace of mind."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Shane Miller, Global Trade Solutions</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "Their end-to-end support framework across payroll management, corporate filings, and modern physical meeting rooms allowed us to launch operations safely and cleanly in record time. Phenomenal value architectural setup."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Anna Lim, Creative Hive Studios</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "As a foreign business owner breaking into the regional marketplace, handling statutory declarations can feel like a minefield. Espacio Manila handled everything transparently, removing a tremendous amount of structural weight off our backs."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— David Vance, NexaCore Logistics</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "The sheer flexibility of accessing high-end, professionally styled meeting boardrooms exactly when we need to sign physical asset deeds or host stakeholders is incomparable. Best strategic choice we made this fiscal year."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Elena Rostova, Vertex Capital Partners</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "Their administrative ecosystem is smooth and tightly integrated. Mail handling alerts arrive cleanly without lagging, and bookkeeping logs are structured with accurate microservice precision. Highly recommended for remote-first squads."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Jonathan Mercer, CloudSync Software</cite>
+                        </div>
+                    </div>
+
+                    <div class="review-card-wrapper">
+                        <div class="review-card flex flex-col items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mb-8 border-2 border-[#C5A059] shadow-md">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" alt="Client Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <blockquote class="font-serif text-lg md:text-xl text-[#011F3F] leading-relaxed italic max-w-2xl mb-6">
+                                "Navigating bureaucratic filings for agricultural and manufacturing startups is complex. Their expert consultation framework streamlined our local compliance paths elegantly, leaving us entirely free to optimize production scales."
+                            </blockquote>
+                            <cite class="text-xs uppercase tracking-[0.25em] font-black gold-accent not-italic">— Clara Valenzuela, TerraGrow Agribusiness</cite>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="flex justify-center flex-wrap max-w-lg mx-auto gap-3 mt-8" id="reviewDotsContainer"></div>
+        </div>
+    </section>
+
     <section class="py-28 bg-white">
         <div class="max-w-7xl mx-auto px-8">
             <div class="reveal-up mb-16 text-center">
@@ -208,8 +308,7 @@ title: Home | Espacio Manila
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
                     </button>
                     
-                    <div class="flex gap-3.5" id="sliderDotsContainer">
-                        </div>
+                    <div class="flex gap-3.5" id="sliderDotsContainer"></div>
                     
                     <button class="slider-nav-btn" onclick="moveSlide(1)" aria-label="Next slide">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -386,4 +485,89 @@ title: Home | Espacio Manila
 
     buildDots();
     startAutoSlide();
+
+
+    // Independent Client Reviews Slider Engine Block
+    let currentReview = 0;
+    const reviewTrack = document.getElementById('reviewTrack');
+    const reviewSlides = document.querySelectorAll('.review-card-wrapper');
+    const totalReviews = reviewSlides.length;
+    const reviewDotsContainer = document.getElementById('reviewDotsContainer');
+    let reviewAutoInterval;
+
+    let reviewTouchStartX = 0;
+    let reviewTouchEndX = 0;
+
+    function buildReviewDots() {
+        reviewDotsContainer.innerHTML = '';
+        for (let i = 0; i < totalReviews; i++) {
+            const dot = document.createElement('button');
+            dot.className = `review-dot ${i === 0 ? 'dot-active' : ''}`;
+            dot.setAttribute('aria-label', `Go to review ${i + 1}`);
+            dot.addEventListener('click', () => {
+                goToReview(i);
+                restartReviewAutoSlide();
+            });
+            reviewDotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateReviewPosition() {
+        reviewTrack.style.transform = `translateX(-${currentReview * 100}%)`;
+        const dots = document.querySelectorAll('.review-dot');
+        dots.forEach((dot, idx) => {
+            if (idx === currentReview) {
+                dot.classList.add('dot-active');
+            } else {
+                dot.classList.remove('dot-active');
+            }
+        });
+    }
+
+    function goToReview(index) {
+        currentReview = index;
+        updateReviewPosition();
+    }
+
+    function moveReview(direction) {
+        currentReview += direction;
+        if (currentReview >= totalReviews) {
+            currentReview = 0;
+        } else if (currentReview < 0) {
+            currentReview = totalReviews - 1;
+        }
+        updateReviewPosition();
+    }
+
+    function startReviewAutoSlide() {
+        reviewAutoInterval = setInterval(() => {
+            moveReview(1);
+        }, 6000); // Transitions automatically every 6 seconds
+    }
+
+    function restartReviewAutoSlide() {
+        clearInterval(reviewAutoInterval);
+        startReviewAutoSlide();
+    }
+
+    const reviewsSliderViewport = document.getElementById('reviewsSlider');
+
+    reviewsSliderViewport.addEventListener('touchstart', (e) => {
+        reviewTouchStartX = e.changedTouches[0].screenX;
+        clearInterval(reviewAutoInterval);
+    }, { passive: true });
+
+    reviewsSliderViewport.addEventListener('touchend', (e) => {
+        reviewTouchEndX = e.changedTouches[0].screenX;
+        const threshold = 40;
+        if (reviewTouchStartX - reviewTouchEndX > threshold) {
+            moveReview(1);
+        } else if (reviewTouchEndX - reviewTouchStartX > threshold) {
+            moveReview(-1);
+        }
+        startReviewAutoSlide();
+    }, { passive: true });
+
+    buildReviewDots();
+    startReviewAutoSlide();
 </script>
