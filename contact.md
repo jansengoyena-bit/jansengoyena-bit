@@ -57,8 +57,8 @@ title: Contact Us | Espacio Manila
 
                     <div id="success-notification" class="hidden text-center py-10 animate-fade-in">
                         <i class="fa-solid fa-circle-check text-[#C5A059] text-5xl mb-6"></i>
-                        <h2 class="serif text-3xl text-[#011F3F]">Transmission Received</h2>
-                        <p class="text-[10px] uppercase tracking-[0.4em] text-[#011F3F]/50 mt-4">The Architect will contact you shortly.</p>
+                        <h2 class="serif text-3xl text-[#011F3F]">Inquiry Accepted</h2>
+                        <p class="text-[10px] uppercase tracking-[0.4em] text-[#011F3F]/50 mt-4">Our sales representative will contact you to discuss your needs.</p>
                         <button onclick="location.reload()" class="mt-8 text-[9px] uppercase tracking-widest text-[#C5A059] border-b border-[#C5A059] pb-1">Send another inquiry</button>
                     </div>
 
