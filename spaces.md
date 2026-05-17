@@ -227,7 +227,7 @@ title: Virtual Office Solutions | Espacio Manila
                 </div>
             </div>
 
-            <div class="lg:col-span-5 reveal-right">
+            <div class="hidden lg:block lg:col-span-5 reveal-right">
                 <div class="relative p-4">
                     <div class="aspect-[4/5] bg-[#011F3F] overflow-hidden shadow-[0_30px_70px_rgba(1,31,63,0.06)]">
                         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Corporate Business Core Address Infrastructure" class="w-full h-full object-cover filter grayscale contrast-125 mix-blend-luminosity">
